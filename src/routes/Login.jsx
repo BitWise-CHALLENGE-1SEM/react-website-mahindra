@@ -61,7 +61,7 @@ const Login=()=>{
                                 className="caixa-input"
                                 placeholder="Email do usuário"
                                 id="email"
-                                ref={usuario}
+                                ref={email}
                             />
                         </div>
 
@@ -85,7 +85,7 @@ const Login=()=>{
                             </li>
                             <li>
                                 <span className="texto-utilidade">Não possui conta? </span>
-                                <Link to="/registarConta">Criar</Link>
+                                <Link to="/clientes">Criar</Link>
                             </li>
                         </ul>
                     </form>

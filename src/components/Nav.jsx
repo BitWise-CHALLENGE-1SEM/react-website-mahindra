@@ -4,7 +4,7 @@ const Nav=()=>{
     return(
         <>
             <Link to="/login">logar_teste </Link>
-            <Link to="/login">cadastrar_teste </Link>
+            <Link to="/clientes">cadastrar_teste </Link>
         </>
     )
 }

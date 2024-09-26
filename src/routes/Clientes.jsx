@@ -39,7 +39,7 @@ const Clientes=()=>{
                     <input
                         type="text"
                         name="usuario"
-                        value={usuarios.usuario}
+                        value={registrados.usuario}
                         placeholder="Digite o nome de usuário"
                         onChange={handleChange}
                         required
@@ -48,7 +48,7 @@ const Clientes=()=>{
                     <input
                         type="text"
                         name="email"
-                        value={usuarios.usuario}
+                        value={registrados.email}
                         placeholder="Digite o email do usuário"
                         onChange={handleChange}
                         required
@@ -57,7 +57,7 @@ const Clientes=()=>{
                     <input
                         type="password"
                         name="senha"
-                        value={usuarios.senha}
+                        value={registrados.senha}
                         placeholder="Digite sua senha"
                         onChange={handleChange}
                         required
@@ -66,7 +66,7 @@ const Clientes=()=>{
                     <input
                         type="text"
                         name="telefone"
-                        value={usuarios.usuario}
+                        value={registrados.telefone}
                         placeholder="Digite o número de telefone"
                         onChange={handleChange}
                     />

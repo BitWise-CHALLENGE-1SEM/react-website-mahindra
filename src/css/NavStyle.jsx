@@ -3,7 +3,10 @@ import styled from "styled-components";
 import "../css/base.css";
 export const NavStyle = styled.section`
 
-
+/* improviso para a nav parar de sobrescrever a home */
+.bloco-nav{
+    padding-bottom: 30vh;
+}
 header{
     width: 100%;
     display: flex;

@@ -38,7 +38,43 @@ const Home=()=>{
                 </div>
             </div>
         </section> */} 
-        
+        <section className="secao1-2">
+            <div className="text">  
+                <p>A Fórmula-E é uma categoria empolgante que combina corridas de carros elétricos com tecnologia de ponta.
+                    No entanto, ela muitas vezes não recebe a mesma atenção que outras competições automobilísticas mais tradicionais. Através da nossa abordagem inovadora 
+                    que combina educação sobre a categoria e lazer (gamificação), vamos impulsionar o interesse e participação do público, consequentemente ampliaremos a divulgação orgânica,
+                    auxiliando a popularizar a Fórmula-E e atrair um público mais amplo.
+                </p>
+                <a href="#secao3">Saiba mais!</a>
+            </div>
+
+            <div className="container-expand">
+                <div>
+                    <div className="content-expand">
+                        <h2>DE VRIES</h2>
+                        <span>Driver</span>
+                    </div>
+                </div>
+                <div>
+                    <div className="content-expand">
+                        <h2>MORTARA</h2>
+                        <span>Driver</span>
+                    </div>
+                </div>
+                <div>
+                    <div className="content-expand">
+                        <h2>King</h2>
+                        <span>Reserve driver</span>
+                    </div>
+                </div>
+                <div>
+                    <div className="content-expand">
+                        <h2>Bertrand</h2>
+                        <span>CEO</span>
+                    </div>
+                </div>
+            </div>
+        </section>
         </>
     )
 }

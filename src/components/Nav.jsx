@@ -12,8 +12,7 @@ const Nav=(props)=>{
             <Link className="cta-button" to="/login">LOGIN</Link>
         </li>
     }
-    return(
-        <>
+    return(<>
         <NavStyle>
             <section className="bloco-nav">
                 <header>
@@ -39,8 +38,7 @@ const Nav=(props)=>{
                 </div>
             </section>
         </NavStyle>
-        </>
-    )
+    </>)
 }
 
 export default Nav

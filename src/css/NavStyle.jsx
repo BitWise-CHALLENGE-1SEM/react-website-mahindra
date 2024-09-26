@@ -3,6 +3,7 @@ import styled from "styled-components";
 import "../css/base.css";
 export const NavStyle = styled.section`
 
+
 header{
     width: 100%;
     display: flex;

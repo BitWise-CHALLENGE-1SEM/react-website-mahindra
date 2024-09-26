@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import "../css/base.css"
 export const FooterStyle = styled.section`
 
 *{
@@ -8,20 +9,9 @@ export const FooterStyle = styled.section`
     font-family: 'Poppins','sans-serif';
 }
 
-:root{
-    --color1: #e0042c;
-    --color2: #222222;
-    --color3: #382424;
-    --color4: #c4dce5;
-    --color5: #0c2b43;
-    --color6: #113454;
-    --background: #1F2336;
-    --accent: #F4BD50;
-} 
-
 footer{
     width: 100%;
-    background: #222222;
+    background: var(--color2);
     min-height: 100px;
     padding: 20px 50px;
     display: flex;
@@ -65,7 +55,7 @@ footer .menu li a{
 }
 
 footer .menu li a:hover{
-    color: #e0042c;
+    color: var(--color1);
 }
 
 footer p{

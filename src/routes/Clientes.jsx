@@ -1,10 +1,81 @@
+import { ClientesStyle } from "../css/ClientesStyle";
+import { useParams, Link, useNavigate } from "react-router-dom"
+import { useState } from "react"
+
 const Clientes=()=>{
-    
-    return(
-        <>
-        
-        </>
-    )
+
+    let {id} = useParams();
+    const [registrados, setRegistrados]=useState({
+        id,
+        nome:"",
+        senha:"",
+        email:"",
+        telefone:""
+    });
+
+    const navigate = useNavigate();
+    const handleChange=(e)=>{
+        setRegistrados({...registrados,[e.target.name]:e.target.value})
+    }
+
+    const handleSubmit=(e)=>{
+        e.preventDefault();
+        fetch(`http://localhost:5001/clientes/${id ? id:""}`,{
+            method: id?"put":"post",
+            headers:{
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(registrados),
+        }).then (()=>{
+            navigate("/login");
+        })
+    };
+
+    return(<>
+        <ClientesStyle>
+            <section className="usuario">
+                <h1>Cadastrar Usuários</h1>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        name="usuario"
+                        value={usuarios.usuario}
+                        placeholder="Digite o nome de usuário"
+                        onChange={handleChange}
+                        required
+                    />
+
+                    <input
+                        type="text"
+                        name="email"
+                        value={usuarios.usuario}
+                        placeholder="Digite o email do usuário"
+                        onChange={handleChange}
+                        required
+                    />
+
+                    <input
+                        type="password"
+                        name="senha"
+                        value={usuarios.senha}
+                        placeholder="Digite sua senha"
+                        onChange={handleChange}
+                        required
+                    />
+                    
+                    <input
+                        type="text"
+                        name="telefone"
+                        value={usuarios.usuario}
+                        placeholder="Digite o número de telefone"
+                        onChange={handleChange}
+                    />
+
+                    <button type="submit" onSubmit={handleSubmit}>Cadastrar</button>
+                </form>
+            </section>
+        </ClientesStyle>
+    </>)
 }
 
 export default Clientes

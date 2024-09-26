@@ -31,7 +31,6 @@ const Login=()=>{
             Math.random().toString(16).substring(2)
             sessionStorage.setItem("email",email)
             sessionStorage.setItem("senha",token)
-            // navigate("/cadastrarProduto")
         }else{
             alert("usuario/senha inválidos")
         }
@@ -40,9 +39,7 @@ const Login=()=>{
     useEffect(()=>{
         fetch("http://localhost:5001/clientes").then((resposta)=>{
             return resposta.json();
-        })
-
-        .then((resposta)=>{
+        }).then((resposta)=>{
             setRegistrados(resposta)
         })
     },[])

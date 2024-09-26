@@ -21,7 +21,7 @@ export const FooterStyle = styled.section`
 
 footer{
     width: 100%;
-    background: var(--color2);
+    background: #222222;
     min-height: 100px;
     padding: 20px 50px;
     display: flex;
@@ -65,7 +65,7 @@ footer .menu li a{
 }
 
 footer .menu li a:hover{
-    color: var(--color1);
+    color: #e0042c;
 }
 
 footer p{
@@ -74,16 +74,4 @@ footer p{
     font-size: 1.1rem;
     margin: 15px 0 10px 0;
 }
-
-/* RESPONSIVIDADE FOOTER */
-@media (max-width: 658px){
-    footer .menu {
-        flex-direction: column;
-    }
-
-    footer p{
-        margin-bottom: 15px;
-    }
-}
-
 `

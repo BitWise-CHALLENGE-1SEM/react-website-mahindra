@@ -2,6 +2,11 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
+import Erro from './routes/Erro.jsx'
+import Jogo from './routes/Jogo.jsx'
+import Login from './routes/Login.jsx'
+import Home from './routes/Home.jsx'
+import Clientes from './routes/Clientes.jsx'
 
 const router = createBrowserRouter([{
   path:'/', element: <App/>,
@@ -10,7 +15,7 @@ const router = createBrowserRouter([{
   children:[
     {path:'/',element: <Home/>},
     {path:'/clientes',element: <Clientes/>},
-    {path:'/cadastrar',element: <Cadastrar/>},
+    {path:'/login',element: <Login/>},
     {path:'/jogo',element: <Jogo/>}
 
 

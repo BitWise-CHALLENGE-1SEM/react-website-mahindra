@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom"
 
 function App() {
   return (<>
-    <Nav/>
+    <Nav buttons={["Home","Login"]}/>
     <Outlet/>
     <Footer/>
   </>)

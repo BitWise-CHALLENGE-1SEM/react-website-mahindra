@@ -2,13 +2,6 @@ import styled from "styled-components";
 import "../css/base.css"
 export const FooterStyle = styled.section`
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins','sans-serif';
-}
-
 footer{
     width: 100%;
     background: var(--color2);

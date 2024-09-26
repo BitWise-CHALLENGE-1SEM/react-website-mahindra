@@ -3,20 +3,29 @@ import { useEffect, useRef, useState} from "react"
 import { LoginStyle } from "../css/LoginStyle";
 
 const Login=()=>{
-    const usuario = useRef();
-    const email = useRef();
-    const senha = useRef();
+    let usuario = ""
+    let email = ""
+
+    const inputUser = useRef();
+    const inputPass = useRef();
 
     const [registrados, setRegistrados] = useState();
     const navigate = useNavigate();
 
     function validade(){
         for(let i=0; i<registrados.length; i++){
+            console.log(registrados[i])
             if(
-                registrados[i].email == email.current.value
-                &&
-                registrados[i].senha == senha.current.value
+                (
+                    registrados[i].email == inputUser.current.value
+                    |
+                    registrados[i].usuario == inputUser.current.value
+                ) &&
+                registrados[i].senha == inputPass.current.value
             ){ 
+                usuario = registrados[i].usuario
+                email = registrados[i].email
+
                 return true;
             }
         }
@@ -29,6 +38,8 @@ const Login=()=>{
             let token = 
             Math.random().toString(16).substring(2)+
             Math.random().toString(16).substring(2)
+
+            sessionStorage.setItem("usuario",usuario)
             sessionStorage.setItem("email",email)
             sessionStorage.setItem("senha",token)
             navigate("/")
@@ -58,7 +69,7 @@ const Login=()=>{
                                 className="caixa-input"
                                 placeholder="Email do usuário"
                                 id="email"
-                                ref={email}
+                                ref={inputUser}
                             />
                         </div>
 
@@ -68,7 +79,7 @@ const Login=()=>{
                                 className="caixa-input"
                                 placeholder="Senha"
                                 id="senha"
-                                ref={senha}
+                                ref={inputPass}
                             />
                         </div>
                         

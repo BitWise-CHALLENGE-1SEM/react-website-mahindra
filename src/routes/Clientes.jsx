@@ -20,7 +20,7 @@ const Clientes=()=>{
 
     const handleSubmit=(e)=>{
         e.preventDefault();
-        fetch(`http://localhost:5001/clientes/${id ? id:""}`,{
+        fetch(`http://localhost:5000/clientes/${id ? id:""}`,{
             method: id?"put":"post",
             headers:{
                 "content-type": "application/json",

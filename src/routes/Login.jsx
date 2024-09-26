@@ -13,9 +13,9 @@ const Login=()=>{
     function validade(){
         for(let i=0; i<registrados.length; i++){
             if(
-                usuarios[i].email == email.current.value
+                registrados[i].email == email.current.value
                 &&
-                usuarios[i].senha == senha.current.value
+                registrados[i].senha == senha.current.value
             ){ 
                 return true;
             }
@@ -31,13 +31,14 @@ const Login=()=>{
             Math.random().toString(16).substring(2)
             sessionStorage.setItem("email",email)
             sessionStorage.setItem("senha",token)
+            navigate("/")
         }else{
             alert("usuario/senha inválidos")
         }
     }
 
     useEffect(()=>{
-        fetch("http://localhost:5001/clientes").then((resposta)=>{
+        fetch("http://localhost:5000/clientes").then((resposta)=>{
             return resposta.json();
         }).then((resposta)=>{
             setRegistrados(resposta)

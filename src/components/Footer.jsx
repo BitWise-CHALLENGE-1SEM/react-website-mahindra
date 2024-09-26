@@ -1,25 +1,35 @@
+import { FooterStyle } from "../css/FooterStyle";
+import { FaApple } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { BiLogoPlayStore } from "react-icons/bi";
+
 const Footer=()=>{
     
     return(
         <>
+        
+
+        
         <FooterStyle>
             <footer>
-                <ul class="social-icon">
-                    <li><a href="#"><i className='bx bxl-apple'></i></a></li>
-                    <li><a href="#"><i className='bx bxl-facebook-circle'></i></a></li>
-                    <li><a href="#"><i className='bx bxl-linkedin-square'></i></a></li>
-                    <li><a href="#"><i className='bx bxl-instagram'></i></a></li>
-                    <li><a href="#"><i className='bx bxl-play-store' ></i></a></li>
+                <ul className="social-icon">
+                    <li><a href="#"><FaApple/></a></li>
+                    <li><a href="#"><FaFacebook/></a></li>
+                    <li><a href="#"><FaLinkedin/></a></li>
+                    <li><a href="#"><FaInstagram/></a></li>
+                    <li><a href="#"><BiLogoPlayStore/></a></li>
                 </ul>
 
-                <ul class="menu">
-                    <li><a href="#secao1-2">Problemática</a></li>
-                    <li><a href="#secao2">Solução</a></li>
-                    <li><a href="#secao3">Objetivos</a></li>
+                <ul className="menu">
+                    <li><a href="#">Problemática</a></li>
+                    <li><a href="#">Solução</a></li>
+                    <li><a href="#">Objetivos</a></li>
                 </ul>
                 <p>@2024 BitWise | Todos Direitos Reservados</p>
             </footer>
-        </FooterStyle>
+         </FooterStyle>
         </>
     )
 }

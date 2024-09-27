@@ -4,6 +4,7 @@ import attack_mode from "../assets/game/atackmode.png"
 import boost_sound from "../assets/audios/atack_mode_sound.mp3"
 
 import { JogoStyle } from "../css/JogoStyle"
+import { useState } from "react"
 
 const Jogo=()=>{
 const mario = document.querySelector(".mario");
@@ -17,31 +18,31 @@ addEventListener('keydown', function(event){
     const newDirect = event.keyCode;
     if(newDirect == 87){
         let up = true
-        mario.classList.add("up")
-        mario.classList.remove("removeup")
-        mario.classList.remove("down")
-        mario.classList.remove("removedown")
+        mario.classList.add(".up")
+        mario.classList.remove(".removeup")
+        mario.classList.remove(".down")
+        mario.classList.remove(".removedown")
 
     }
     if(newDirect == 83){
         let down = true
-        mario.classList.add("down")
-        mario.classList.remove("removedown")
-        mario.classList.remove("up")
-        mario.classList.remove("removeup")
+        mario.classList.add(".down")
+        mario.classList.remove(".removedown")
+        mario.classList.remove(".up")
+        mario.classList.remove(".removeup")
     }
 })
 addEventListener('keyup', function(event){
     const newDirect = event.keyCode
     if(newDirect == 87){
        let up = false
-        mario.classList.add("removeup")
+        mario.classList.add(".removeup")
         
         
     }
     if(newDirect == 83){
         down = false
-        mario.classList.add("removedown")
+        mario.classList.add(".removedown")
         
     
     }
@@ -57,7 +58,8 @@ const loop = setInterval(() => {
     const marioPosition = +window.getComputedStyle(mario).bottom.replace('px' , '' );
     const cloudsPosition = clouds.offsetLeft;
 
-    soundtrack.play()
+    // soundtrack.play()
+
 /*Um if para ganhar o boost + audio ao acertar o ATACK MODE */
 if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 90){
 
@@ -74,16 +76,16 @@ if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 90){
     mario.style.width = '77px'
     mario.style.marginLeft = '40px'
 
-    document.querySelector("game-over").style.display = "block";
+    document.querySelector(".game-over").style.display = "block";
 
-    audio.play()
-    soundtrack.pause()
+    // audio.play()
+    // soundtrack.pause()
 
     clearInterval(loop);
 
 }  else{
 
-    document.querySelector("game-over").style.display = "none";
+    document.querySelector(".game-over").style.display = "none";
     
 }
 /*OUTRO if para MORRER apos acertar algum carro */

@@ -23,7 +23,7 @@ export const JogoStyle = styled.section`
     bottom: 0;
     width: 90px;
     height: 20px;
-    animation: pipe-animation 2s infinite linear;
+    // animation: pipe-animation 2s infinite linear;
 }
 
 .mario{

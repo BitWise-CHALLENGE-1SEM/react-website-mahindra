@@ -2,6 +2,9 @@ import gp_sp from "../assets/tracks/gp-sao-paulo.webp";
 import gp_monaco from "../assets/tracks/gp-monaco.webp";
 import gp_berlim from "../assets/tracks/gp-berlim.webp";
 import gp_uer from "../assets/tracks/gp-uer.webp";
+
+import exemplo_jogo from "../assets/exemplo_jogo.png";
+
 import { HomeStyle } from "../css/HomeStyle";
 
 
@@ -73,6 +76,28 @@ const Home=()=>{
                                 <h2>Bertrand</h2>
                                 <span>CEO</span>
                             </div>
+                        </div>
+                    </div>
+                </section>
+                <section className="secao2">
+                    <div className="jogo">
+                        <h2>Aprendendo de maneira divertida!</h2>
+                        <img src={exemplo_jogo} alt="exemplo_jogo"/>
+                    </div>
+                </section>
+                <section className="secao3">
+                    <div class="container">
+                        <div class="content">
+                            <h2>Impactos Negativos do Problema</h2>
+                            <p>O problema enfrentado pela Fórmula-E é a falta de popularidade e divulgação insuficiente. Isso resulta em menor interesse do público,
+                                menor base de fãs e oportunidades de negócios limitadas para organizadores e equipes. Além disso,
+                                os potenciais fãs perdem a chance de desfrutar das corridas empolgantes e tecnológicas da categoria.</p>
+                        </div>  
+                        <div class="content">
+                            <h2>Impactos Positivos da Solução</h2>
+                            <p>A solução incentivará a participação ativa, criando uma comunidade mais entusiasmada em torno da categoria, ou seja, o conhecimento e o interesse dos fãs ampliarão. Dessa forma,
+                                aumenta-se a divulgação orgânica e consequentemente a popularidade da fórmula-E. Em suma, o público aumentará devido ao aumento da divulgação orgânica,
+                                a partir disso promovemos maior visibilidade para a Fórmula-E favorecendo a presença de patrocinadores e impulsionando a categoria de modo geral.</p>
                         </div>
                     </div>
                 </section>

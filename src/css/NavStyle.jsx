@@ -5,7 +5,7 @@ export const NavStyle = styled.section`
 
 /* improviso para a nav parar de sobrescrever a home */
 .bloco-nav{
-    padding-bottom: 30vh;
+    /* padding-bottom: 30vh; */
 }
 header{
     width: 100%;

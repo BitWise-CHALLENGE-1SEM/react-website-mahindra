@@ -2,6 +2,11 @@ import { useNavigate, Link } from "react-router-dom"
 import { useEffect, useRef, useState} from "react"
 import { LoginStyle } from "../css/LoginStyle";
 
+import { FaUser } from "react-icons/fa";
+import { FaLock } from "react-icons/fa";
+
+
+
 const Login=()=>{
     let usuario = ""
     let email = ""
@@ -58,7 +63,7 @@ const Login=()=>{
 
     return(<>
         <LoginStyle>
-            <section className="container">
+            {/* <section className="container">
                 <div className="login">
                     <form className="login-form" onSubmit={handleSubmit}>
                         <span className="titulo">Faça seu login</span>
@@ -98,7 +103,45 @@ const Login=()=>{
                         </ul>
                     </form>
                 </div>
-            </section>
+            </section> */}
+            <body>
+                <div class="wrapper">
+                    <form action="" onSubmit={handleSubmit}>
+                        <h1>Faça seu login</h1>
+                        <div class="input-box">
+                            <input
+                                type="text"
+                                className="caixa-input"
+                                placeholder="Nome ou email do usuário"
+                                id="email"
+                                ref={inputUser}
+                            />
+                            <i class='bx bxs-user'><FaUser/></i>
+                        </div>
+                        <div class="input-box">
+                            <input
+                                type="password"
+                                className="caixa-input"
+                                placeholder="Senha"
+                                id="senha"
+                                ref={inputPass}
+                            />  
+                            <i class='bx bxs-lock-alt'><FaLock/></i>
+                        </div>
+
+                        <div class="remember-forgot">
+                            <label><input type="checkbox"/> Remember me </label>
+                            <a href="#">Esqueceu a senha?</a>
+                        </div>
+
+                        <button type="submit" class="btn">Login</button>
+
+                        <div class="register-link">
+                            <p>Não possui conta? <Link to="/clientes">Criar</Link></p>
+                        </div>
+                    </form>
+                </div>
+            </body>
         </LoginStyle>
     </>)
 }

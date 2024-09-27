@@ -1,5 +1,11 @@
 import styled from "styled-components";
+import "../css/base.css"
 export const HomeStyle = styled.section`
+
+body{
+    width: 100%;
+    background-image: linear-gradient(var(--color5),var(--color6),var(--color6),var(--color4));
+}
 
 /* .secao1{
     padding-top: 150px;
@@ -132,16 +138,16 @@ export const HomeStyle = styled.section`
     overflow: hidden;
 }
 .container-expand > div:nth-of-type(1){
-    background: url(../img/de_vries.png) no-repeat 44%/cover #222222;
+    background: url(../src/assets/chars/de_vries.png) no-repeat 44%/cover #222222;
 }
 .container-expand > div:nth-of-type(2){
-    background: url(../img/mortara.png) no-repeat 45%/cover #222222;
+    background: url(../src/assets/chars/king.png) no-repeat 45%/cover #222222;
 }
 .container-expand > div:nth-of-type(3){
-    background: url(../img/king.png) no-repeat 45%/cover #222222;
+    background: url(../src/assets/chars/mortara.png) no-repeat 45%/cover #222222;
 }
 .container-expand > div:nth-of-type(4){
-    background: url(../img/CEO-mahindra.webp) no-repeat 39%/cover;
+    background: url(../src/assets/chars/CEO-mahindra.webp) no-repeat 39%/cover;
 }
 .container-expand > div .content-expand{
     font-size: 1.5rem;

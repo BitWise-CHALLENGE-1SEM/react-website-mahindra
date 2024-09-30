@@ -29,6 +29,7 @@ nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 1vh;
 }
 
 nav ul li {

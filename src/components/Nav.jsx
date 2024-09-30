@@ -36,9 +36,8 @@ const Nav=(props)=>{
             navigate("/jogo");
         }} className="parallelogram-button"><span>JOGO</span></button>
          </li>,
-        Login:<li>
+        Login:
             <Link className="cta-button" to="/login">LOGIN</Link>
-        </li>
     }
     return(<>
         <NavStyle>

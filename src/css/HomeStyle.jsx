@@ -78,28 +78,30 @@ body{
 
 .secao1-2{
     width: 100%;
+    height: auto;
     display:flex;
-    flex-wrap: wrap-reverse;
     justify-content: center;
     align-items: center;
     padding-top: 100px;
     padding-bottom: 100px;
+    padding-left: 100px;
     background-image: radial-gradient( #ececec , #dddddd);
     border-bottom: 8px solid var(--color1);
 }
 
 .text{
-    width: 30%;
     display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
     background-color: #fff;
-    margin-left: 150px;
     padding: 3rem;
     border-radius: 10px;
-    font-size: 18px;
+    font-size: 1.2rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
 }
+
+
 
 .text a{
     text-decoration: none;
@@ -119,15 +121,26 @@ body{
     transition: all .3s;
 }
 
+@media (min-width:490px) and (max-width: 1048px ){
+    .secao1-2{
+        flex-direction: column-reverse;
+        padding-left: 0;
+    }
+
+    .text{
+        margin: 50px;
+    }
+}
 
 .container-expand{
-    width: 50%;
+    width: 100%;
     display: flex;
     justify-content: center;
     height: 500px;
     gap: 10px;
     
 }
+
 .container-expand >div{
     flex: 0 0 120px;
     border-radius: 0.5rem;
@@ -179,6 +192,16 @@ body{
     opacity: 1;
     transform: translateY(0%);
     visibility: visible;
+}
+
+@media (max-width: 535px ){
+    .secao1-2{
+        flex-direction: column-reverse;
+    }
+    
+    .text{
+        font-size: 1.3rem;
+    }
 }
 
 .secao2{

@@ -37,7 +37,7 @@ footer .social-icon li a:hover{
     transform: translateY(-10px);
 }
 
-footer .menu li a{  
+footer .menu li button{  
     font-size: 1.2rem;
     color: #fff;
     margin: 0 10px;
@@ -47,8 +47,12 @@ footer .menu li a{
     cursor: pointer;
 }
 
-footer .menu li a:hover{
+footer .menu li button:hover{
     color: var(--color1);
+}
+button{
+    background: none;
+    border: none;
 }
 
 footer p{

@@ -23,9 +23,26 @@ const Footer=()=>{
                 </ul>
 
                 <ul className="menu">
-                    <li><a href="#">Problemática</a></li>
-                    <li><a href="#">Solução</a></li>
-                    <li><a href="#">Objetivos</a></li>
+                    <li><button onClick={()=>{
+                window.scrollTo({
+                    top: document.querySelector(".secao1").getBoundingClientRect().top + window.scrollY,
+                    behavior: "smooth",
+                });
+                }}>Problemática</button></li>
+
+                    <li><button onClick={()=>{
+                window.scrollTo({
+                    top: document.querySelector(".secao2").getBoundingClientRect().top + window.scrollY,
+                    behavior: "smooth",
+                });
+                }}>Solução</button></li>
+
+                    <li><button onClick={()=>{
+                window.scrollTo({
+                    top: document.querySelector(".secao3").getBoundingClientRect().top + window.scrollY,
+                    behavior: "smooth",
+                });
+                }}>Objetivos</button></li>
                 </ul>
                 <p>@2024 BitWise | Todos Direitos Reservados</p>
             </footer>

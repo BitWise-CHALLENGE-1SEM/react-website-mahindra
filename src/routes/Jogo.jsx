@@ -7,6 +7,7 @@ import atack from "../assets/game/atackmode.png";
 import pista from "../assets/game/pista de fundo.png";
 import audio from "../assets/audios/atack_mode_sound.mp3";
 
+import Nav from "../components/Nav"
 const Jogo = () => {
     const marioRef = useRef(null);
     const pipeRef = useRef(null);
@@ -60,7 +61,8 @@ const Jogo = () => {
         return () => clearInterval(loop);
     }, []);
 
-    return (
+    return (<>
+        <Nav buttons={["Home"]}/>
         <JogoStyle>
             <div className='content'>
                 <div className="game-board">
@@ -83,6 +85,7 @@ const Jogo = () => {
                 </div>
             </div>
         </JogoStyle>
+    </>
     );
 };
 

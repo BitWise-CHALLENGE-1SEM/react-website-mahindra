@@ -54,7 +54,7 @@ nav ul li a,button {
     transition: all .3s;
 }
 
-nav ul li a:hover {
+nav ul li a, button:hover {
     background-color: var(--color6);
 }
 

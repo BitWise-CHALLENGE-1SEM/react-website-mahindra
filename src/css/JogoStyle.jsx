@@ -89,14 +89,22 @@ export const JogoStyle = styled.section`
 
 .teclas{
     padding: 5vh;
-    display: flex;
+    display: grid;
+    grid-template-columns: (1fr,1fr); 
     justify-content: center;
     gap: 5vh;
 }
+
+.grid1{
+    order: 1;
+}
+.grid2{
+    order: 2;
+}
 .teclas img{
     height: 8vh;
-
 }
+
 
 @keyframes pipe-animation {
     from{

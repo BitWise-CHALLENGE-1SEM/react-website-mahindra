@@ -64,7 +64,7 @@ const Jogo = () => {
     return (<>
         <Nav buttons={["Home"]}/>
         <JogoStyle>
-            <div className='content'>
+            <section className='content'>
                 <div className="game-board">
                     <button className="game-over">GAME OVER</button>
                     <img src={pista} className="clouds" ref={cloudsRef} />
@@ -74,16 +74,16 @@ const Jogo = () => {
                     <div className="score">0</div>
                 </div>
                 <div className="teclas">
-                    <div>
+                    <div className='grid1'>
                         <img src={tecla_w} alt="Up" />
-                        <h2>Up</h2>
+                        <h2>UP</h2>
                     </div>
-                    <div>
+                    <div className='grid2'>
                         <img src={tecla_s} alt="Down" />
                         <h2>Down</h2>
                     </div>
                 </div>
-            </div>
+            </section>
         </JogoStyle>
     </>
     );

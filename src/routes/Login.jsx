@@ -6,7 +6,7 @@ import { FaUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 
 
-
+import Nav from "../components/Nav"
 const Login=()=>{
     let usuario = ""
     let email = ""
@@ -62,6 +62,7 @@ const Login=()=>{
     },[])
 
     return(<>
+        <Nav buttons={["Home"]}/>
         <LoginStyle>
             {/* <section className="container">
                 <div className="login">

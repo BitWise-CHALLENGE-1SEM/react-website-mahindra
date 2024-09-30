@@ -5,9 +5,29 @@ import logo_formula from "../assets/Formula_E.png"
 
 const Nav=(props)=>{
     const buttons = {
-        Home:<li>
-            <a href="#secao1-2" className="parallelogram-button"><span>asdasdasd</span></a>
+        Impactos:<li>
+            <button type="text" className="parallelogram-button" onClick={()=>{
+                window.scrollTo({
+                    top: document.querySelector(".secao3").getBoundingClientRect().top + window.scrollY,
+                    behavior: "smooth",
+                });
+            }}><span>IMPACTOS</span></button>
         </li>,
+        Sobre:<li>
+            <button type="text" className="parallelogram-button" onClick={()=>{
+                window.scrollTo({
+                    top: document.querySelector(".secao1-2").getBoundingClientRect().top + window.scrollY,
+                    behavior: "smooth",
+                });
+            }}><span>SOBRE</span></button>
+        </li>,
+        
+        Home:<li>
+            <Link className="parallelogram-button" to="/">HOME</Link>
+        </li>,
+        Game:<li>
+            <Link className="parallelogram-button" to="/jogo">JOGO</Link>
+         </li>,
         Login:<li>
             <Link className="cta-button" to="/login">LOGIN</Link>
         </li>
@@ -17,9 +37,7 @@ const Nav=(props)=>{
             <section className="bloco-nav">
                 <header>
                     <div className="logo">
-                        <a href="#home">
-                            <img src={logo} alt="logo"/>
-                        </a>
+                        <img src={logo} alt="logo"/>
                     </div>
                     <nav>
                         <ul>

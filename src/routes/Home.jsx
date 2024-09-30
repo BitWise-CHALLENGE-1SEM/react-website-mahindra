@@ -8,11 +8,11 @@ import exemplo_jogo from "../assets/exemplo_jogo.png";
 
 import { HomeStyle } from "../css/HomeStyle";
 
-
+import Nav from "../components/Nav"
 const Home=()=>{
     
-    return(
-        <>
+    return(<>
+        <Nav buttons={["Impactos","Sobre","Game",sessionStorage.getItem("usuario") ? "" : "Login"]}/>
         <HomeStyle>
             <Slideshow/>
             <body>
@@ -105,8 +105,7 @@ const Home=()=>{
                 </section>
             </body>
         </HomeStyle>
-        </>
-    )
+    </>)
 }
 
 export default Home

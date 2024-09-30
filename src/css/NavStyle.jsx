@@ -13,7 +13,7 @@ header{
     justify-content: space-between;
     align-items: center;
     background-color: var(--color1);
-    position: fixed;
+    position: relative;
     z-index: 3;
 }
 
@@ -37,7 +37,7 @@ nav ul li {
     margin: auto 10px auto 10px;
 }
 
-nav ul li a {
+nav ul li a,button {
     display: inline-block;
     padding: 10px 30px;  
     color: white;
@@ -57,16 +57,16 @@ nav ul li a {
     transition: all .3s;
 }
 
-nav ul li a:hover {
+nav ul li a,button:hover {
     background-color: var(--color6);
 }
 
-.parallelogram-button span:hover{
+.parallelogram-button span:hover {
     transform: scale(1.08) skew(20deg);
     transition: all .3s;
 }
 .cta-button {
-    margin: 0px 25px 0px 25px;
+    margin: 0px 25px px 25px;
     background: var(--color2);
     padding: 4px 30px 4px 30px;
     align-items: center;
@@ -96,11 +96,12 @@ nav ul li a:hover {
     background: var(--color6);
 }
 .logo-formula{
+    transform: translateY(-55%);
     width: 250px;
     padding-top: 90px;
     background-color: var(--color1);
     clip-path: polygon(0 0, 100% 55%, 70% 100%, 0% 100%);
-    position: fixed;
+    position: absolute;
     z-index: 2;
 }
 

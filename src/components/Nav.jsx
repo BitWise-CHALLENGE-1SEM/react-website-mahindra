@@ -1,9 +1,15 @@
-import { Link } from "react-router-dom"
+import { Link, Navigate, useNavigate } from "react-router-dom"
 import { NavStyle } from "../css/NavStyle"
 import logo from "../assets/logo_mahindra.png"
 import logo_formula from "../assets/Formula_E.png"
 
+
+
 const Nav=(props)=>{
+
+    const navigate = useNavigate()
+    
+
     const buttons = {
         Impactos:<li>
             <button type="text" className="parallelogram-button" onClick={()=>{
@@ -26,7 +32,9 @@ const Nav=(props)=>{
             <Link className="parallelogram-button" to="/">HOME</Link>
         </li>,
         Game:<li>
-            <Link className="parallelogram-button" to="/jogo">JOGO</Link>
+            <button onClick={()=>{
+            navigate("/jogo");
+        }} className="parallelogram-button"><span>JOGO</span></button>
          </li>,
         Login:<li>
             <Link className="cta-button" to="/login">LOGIN</Link>

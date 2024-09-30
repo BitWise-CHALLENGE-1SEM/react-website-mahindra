@@ -7,8 +7,13 @@ export const JogoStyle = styled.section`
     padding: 0;
     box-sizing: border-box;
 }
+.content{
+    padding-top: 20vh;
+    background-color: var(--color5);
 
+}
 .game-board{
+    
     width: 100%;
     height: 500px;
     margin: 0 auto;
@@ -23,7 +28,7 @@ export const JogoStyle = styled.section`
     bottom: 0;
     width: 90px;
     height: 20px;
-    // animation: pipe-animation 2s infinite linear;
+    animation: pipe-animation 2s infinite linear;
 }
 
 .mario{
@@ -61,7 +66,7 @@ export const JogoStyle = styled.section`
 }
 
 
-.game-over{
+/* .game-over{
     position: absolute;
     font-size: 23px;
     font-weight: bold;
@@ -76,10 +81,21 @@ export const JogoStyle = styled.section`
     border-radius: 4px;
     background-color: rgb(212, 69, 33);
     z-index: 999;
-}
+} */
 
 .game-over:hover{
     background-color: #E0F6FF;
+}
+
+.teclas{
+    padding: 5vh;
+    display: flex;
+    justify-content: center;
+    gap: 5vh;
+}
+.teclas img{
+    height: 8vh;
+
 }
 
 @keyframes pipe-animation {

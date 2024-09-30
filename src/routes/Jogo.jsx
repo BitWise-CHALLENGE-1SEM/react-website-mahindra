@@ -1,115 +1,89 @@
-import pista from "../assets/game/pista de fundo.png"
-import carro from "../assets/game/mario.png"
-import attack_mode from "../assets/game/atackmode.png"
-import boost_sound from "../assets/audios/atack_mode_sound.mp3"
+import React, { useState, useEffect, useRef } from 'react';
+import { JogoStyle } from "../css/JogoStyle.jsx";
+import tecla_s from "../assets/game/tecla-s-do-teclado.png";
+import tecla_w from "../assets/game/tecla-w-de-um-teclado-de-computador.png";
+import carro from "../assets/game/mario.png";
+import atack from "../assets/game/atackmode.png";
+import pista from "../assets/game/pista de fundo.png";
+import audio from "../assets/audios/atack_mode_sound.mp3";
 
-import { JogoStyle } from "../css/JogoStyle"
-import { useState } from "react"
+const Jogo = () => {
+    const marioRef = useRef(null);
+    const pipeRef = useRef(null);
+    const cloudsRef = useRef(null);
+    const audioRef = useRef(null);
+    const [up, setUp] = useState(false);
+    const [down, setDown] = useState(false);
 
-const Jogo=()=>{
-const mario = document.querySelector(".mario");
-const pipe = document.querySelector(".pipe");
-const clouds = document.querySelector(".clouds");
-const audio = document.querySelector(".audio");
-const audioJump = document.querySelector(".audio-jump");
-const soundtrack = document.querySelector(".soundtrack")
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (event.keyCode === 87) {
+                setUp(true);
+                marioRef.current.classList.add("up");
+                marioRef.current.classList.remove("removeup", "down", "removedown");
+            }
+            if (event.keyCode === 83) {
+                setDown(true);
+                marioRef.current.classList.add("down");
+                marioRef.current.classList.remove("removedown", "up", "removeup");
+            }
+        };
 
-addEventListener('keydown', function(event){
-    const newDirect = event.keyCode;
-    if(newDirect == 87){
-        let up = true
-        mario.classList.add(".up")
-        mario.classList.remove(".removeup")
-        mario.classList.remove(".down")
-        mario.classList.remove(".removedown")
+        const handleKeyUp = (event) => {
+            if (event.keyCode === 87) {
+                setUp(false);
+                marioRef.current.classList.add("removeup");
+            }
+            if (event.keyCode === 83) {
+                setDown(false);
+                marioRef.current.classList.add("removedown");
+            }
+        };
 
-    }
-    if(newDirect == 83){
-        let down = true
-        mario.classList.add(".down")
-        mario.classList.remove(".removedown")
-        mario.classList.remove(".up")
-        mario.classList.remove(".removeup")
-    }
-})
-addEventListener('keyup', function(event){
-    const newDirect = event.keyCode
-    if(newDirect == 87){
-       let up = false
-        mario.classList.add(".removeup")
-        
-        
-    }
-    if(newDirect == 83){
-        down = false
-        mario.classList.add(".removedown")
-        
-    
-    }
-})
+        window.addEventListener('keydown', handleKeyDown);
+        window.addEventListener('keyup', handleKeyUp);
 
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+            window.removeEventListener('keyup', handleKeyUp);
+        };
+    }, []);
 
+    useEffect(() => {
+        const loop = setInterval(() => {
+            const pipePosition = pipeRef.current?.offsetLeft;
+            const cloudsPosition = cloudsRef.current?.offsetLeft;
 
+            // Lógica do jogo aqui
+        }, 10);
 
+        return () => clearInterval(loop);
+    }, []);
 
-const loop = setInterval(() => {
-
-    const pipePosition = pipe.offsetLeft;
-    const marioPosition = +window.getComputedStyle(mario).bottom.replace('px' , '' );
-    const cloudsPosition = clouds.offsetLeft;
-
-    // soundtrack.play()
-
-/*Um if para ganhar o boost + audio ao acertar o ATACK MODE */
-if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 90){
-
-    pipe.style.animation = 'none';
-    pipe.style.left = `${pipePosition}px`;
-
-    mario.style.animation = 'none';
-    mario.style.bottom = `${marioPosition}px`;
-
-    /*clouds.style.animation = 'none';
-    clouds.style.left = `${cloudsPosition}px`;*/
-
-    
-    mario.style.width = '77px'
-    mario.style.marginLeft = '40px'
-
-    document.querySelector(".game-over").style.display = "block";
-
-    // audio.play()
-    // soundtrack.pause()
-
-    clearInterval(loop);
-
-}  else{
-
-    document.querySelector(".game-over").style.display = "none";
-    
-}
-/*OUTRO if para MORRER apos acertar algum carro */
-}, 10);
-
-    return(
-        <>
+    return (
         <JogoStyle>
-            <body>
+            <div className='content'>
                 <div className="game-board">
                     <button className="game-over">GAME OVER</button>
-                    <img src={pista} className="clouds"/>
-
-                    <img src={carro} className="mario"/>
-                    <img src={attack_mode} className="pipe"/> 
-                    <audio src={boost_sound} className="audio"></audio>
-                    {/* <audio src="" className="audio-jump"></audio>
-                    <audio src="" className="soundtrack"></audio> */}
-                    <div className="score">0</div>     
+                    <img src={pista} className="clouds" ref={cloudsRef} />
+                    <img src={carro} className="mario" ref={marioRef} />
+                    <img src={atack} className="pipe" ref={pipeRef} />
+                    <audio src={audio} className="audio" ref={audioRef}></audio>
+                    <div className="score">0</div>
                 </div>
-            </body>
+                <div className="teclas">
+                    <div>
+                        <img src={tecla_w} alt="Up" />
+                        <h2>Up</h2>
+                    </div>
+                    <div>
+                        <img src={tecla_s} alt="Down" />
+                        <h2>Down</h2>
+                    </div>
+                </div>
+            </div>
         </JogoStyle>
-        </>
-    )
-}
+    );
+};
 
-export default Jogo
+export default Jogo;

@@ -21,6 +21,7 @@ header img{
 
 nav{
     display: flex;
+    padding-right: 2vh;
 }
 
 nav ul {

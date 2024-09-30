@@ -13,7 +13,7 @@ header{
     justify-content: space-between;
     align-items: center;
     background-color: var(--color1);
-    position: fixed;
+    position: relative;
     z-index: 3;
 }
 
@@ -96,11 +96,12 @@ nav ul li a,button:hover {
     background: var(--color6);
 }
 .logo-formula{
+    transform: translateY(-55%);
     width: 250px;
     padding-top: 90px;
     background-color: var(--color1);
     clip-path: polygon(0 0, 100% 55%, 70% 100%, 0% 100%);
-    position: fixed;
+    position: absolute;
     z-index: 2;
 }
 

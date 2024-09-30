@@ -1,4 +1,3 @@
-import Nav from "../components/Nav"
 import gp_sp from "../assets/tracks/gp-sao-paulo.webp";
 import gp_monaco from "../assets/tracks/gp-monaco.webp";
 import gp_berlim from "../assets/tracks/gp-berlim.webp";
@@ -9,10 +8,10 @@ import exemplo_jogo from "../assets/exemplo_jogo.png";
 
 import { HomeStyle } from "../css/HomeStyle";
 
+import Nav from "../components/Nav"
 const Home=()=>{
     
-    return(
-        <>
+    return(<>
         <Nav buttons={["Impactos","Sobre","Game",sessionStorage.getItem("usuario") ? "" : "Login"]}/>
         <HomeStyle>
             <Slideshow/>
@@ -106,8 +105,7 @@ const Home=()=>{
                 </section>
             </body>
         </HomeStyle>
-        </>
-    )
+    </>)
 }
 
 export default Home

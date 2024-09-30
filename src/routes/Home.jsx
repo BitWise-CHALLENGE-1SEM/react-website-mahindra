@@ -15,35 +15,6 @@ const Home=()=>{
         <Nav buttons={["Impactos","Sobre","Game",sessionStorage.getItem("usuario") ? "" : "Login"]}/>
         <HomeStyle>
             <Slideshow/>
-            <body>
-                {/* <section className="secao1">
-                    <h3>Inserir as pessoas no mundo da formula-E!</h3>
-                    <div className="slider">
-                        <div className="slides">
-                            <input type="radio" name="radio-btn" id="radio1"/>
-                            <input type="radio" name="radio-btn" id="radio2"/>
-                            <input type="radio" name="radio-btn" id="radio3"/>
-                            <input type="radio" name="radio-btn" id="radio4"/>
-                    
-                            {/* <!-- SLIDES IMAGE --> */}
-                            {/* <div className="slide first">
-                                <img src={gp_sp} alt="imagem 1"/>
-                            </div>
-                    
-                            <div className="slide">
-                                <img src={gp_berlim} alt="imagem 2"/>
-                            </div>
-                    
-                            <div className="slide">
-                                <img src={gp_monaco} alt="imagem 3"/>
-                            </div>
-                    
-                            <div className="slide">
-                                <img src={gp_uer} alt="imagem 4"/>
-                            </div>
-                        </div>
-                    </div>
-                </section> */} 
                 <section className="secao1-2">
                     <div className="text">  
                         <p>A Fórmula-E é uma categoria empolgante que combina corridas de carros elétricos com tecnologia de ponta.
@@ -103,7 +74,6 @@ const Home=()=>{
                         </div>
                     </div>
                 </section>
-            </body>
         </HomeStyle>
     </>)
 }

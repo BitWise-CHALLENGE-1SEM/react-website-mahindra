@@ -83,6 +83,17 @@ const Jogo = () => {
                         <h2>Down</h2>
                     </div>
                 </div>
+                <div className='container-infos'>
+                    <h1>Vivencie as tecnologias REAIS DA CORRIDA!</h1>
+                    <div className='infos'>
+                        <img src={atack} alt='attack mode img'/>
+                        <span>ATTACK MODE: Ao passar por cima da zona de "attack mode" você receberá um aumento de potência para o carro durante um certo período de tempo.</span>
+                    </div>
+                    <div className='infos'>
+                        <img src={atack} alt='zona de frenagem img'/>
+                        <span>Zona de Frenagem: Ao passar por cima da zona de frenagem você recarrega uma porcentagem de bateria, simulando uma frenagem antecedente a curva das pistas reais.</span>
+                    </div>
+                </div>
             </section>
         </JogoStyle>
     </>

@@ -124,4 +124,10 @@ nav ul li a, button:hover {
     border-radius: 100px;
     background: linear-gradient(to right, black, #e0042c);
   }
+
+  @media (max-width: 892px){
+    nav ul{
+       display: none;
+    }
+  }
 `

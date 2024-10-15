@@ -104,6 +104,27 @@ export const JogoStyle = styled.section`
 .teclas img{
     height: 8vh;
 }
+h1{
+    display: flex;
+    color:#E0F6FF;
+    justify-content: center;
+    font-size: 6vh;
+}
+.container-infos{
+    position: relative;
+    padding: 3vh;
+}
+.infos{
+    padding: 9vh;
+    display: flex;
+    align-items: center;
+    color: #E0F6FF;
+    border: solid;
+}
+.infos span{
+    padding-left: 3vh;
+    font-size: 3vh;
+}
 .infos img{
     height: 15vh;
 }

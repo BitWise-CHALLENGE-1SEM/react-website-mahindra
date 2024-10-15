@@ -29,7 +29,14 @@ const Nav=(props)=>{
         </li>,
         
         Home:<li>
-            <Link className="parallelogram-button" to="/">HOME</Link>
+            <button onClick={()=>{
+            navigate("/");
+        }} className="parallelogram-button"><span>Home</span></button>
+        </li>,
+        Tecnologias:<li>
+           <button onClick={()=>{
+            navigate("/tecnologias");
+        }} className="parallelogram-button"><span>Tecnologias</span></button>
         </li>,
         Game:<li>
             <button onClick={()=>{

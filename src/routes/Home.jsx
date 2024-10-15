@@ -12,7 +12,7 @@ import Nav from "../components/Nav"
 const Home=()=>{
     
     return(<>
-        <Nav buttons={["Impactos","Sobre","Game",sessionStorage.getItem("usuario") ? "" : "Login"]}/>
+        <Nav buttons={["Impactos","Sobre","Tecnologias","Game",sessionStorage.getItem("usuario") ? "" : "Login"]}/>
         <HomeStyle>
             <Slideshow/>
                 <section className="secao1-2">

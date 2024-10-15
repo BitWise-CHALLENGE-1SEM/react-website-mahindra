@@ -7,6 +7,7 @@ import Jogo from './routes/Jogo.jsx'
 import Login from './routes/Login.jsx'
 import Home from './routes/Home.jsx'
 import Clientes from './routes/Clientes.jsx'
+import Tecnologias from './routes/Tecnologias.jsx'
 
 const router = createBrowserRouter([{
   path:'/', element: <App/>,
@@ -16,8 +17,8 @@ const router = createBrowserRouter([{
     {path:'/',element: <Home/>},
     {path:'/clientes',element: <Clientes/>},
     {path:'/login',element: <Login/>},
-    {path:'/jogo',element: <Jogo/>}
-
+    {path:'/jogo',element: <Jogo/>},
+    {path:'/tecnologias',element: <Tecnologias/>}
 
 
   ]

@@ -6,7 +6,7 @@ import carro from "../assets/game/mario.png";
 import atack from "../assets/game/atackmode.png";
 import pista from "../assets/game/pista de fundo.png";
 import audio from "../assets/audios/atack_mode_sound.mp3";
-
+import frenagem from "../assets/game/zona-de-frenagem.png";
 import Nav from "../components/Nav"
 const Jogo = () => {
     const marioRef = useRef(null);
@@ -90,7 +90,7 @@ const Jogo = () => {
                         <span>ATTACK MODE: Ao passar por cima da zona de "attack mode" você receberá um aumento de potência para o carro durante um certo período de tempo.</span>
                     </div>
                     <div className='infos'>
-                        <img src={atack} alt='zona de frenagem img'/>
+                        <img src={frenagem} alt='zona de frenagem img'/>
                         <span>Zona de Frenagem: Ao passar por cima da zona de frenagem você recarrega uma porcentagem de bateria, simulando uma frenagem antecedente a curva das pistas reais.</span>
                     </div>
                 </div>

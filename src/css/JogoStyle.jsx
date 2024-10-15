@@ -104,7 +104,9 @@ export const JogoStyle = styled.section`
 .teclas img{
     height: 8vh;
 }
-
+.infos img{
+    height: 15vh;
+}
 
 @keyframes pipe-animation {
     from{

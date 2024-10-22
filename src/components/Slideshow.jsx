@@ -20,7 +20,7 @@ function Slideshow() {
 
     return (
         <SlideshowStyle>
-            <section className="secao1">
+            <section id='secao1' className="secao1">
                 <h3>Inserir as pessoas no mundo da formula-E!</h3>
                 <div className="slideshow">
                     <div className='slideImage'>

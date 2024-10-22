@@ -52,13 +52,13 @@ const Home=()=>{
                         </div>
                     </div>
                 </section>
-                <section className="secao2">
+                <section id="secao2" className="secao2">
                     <div className="jogo">
                         <h2>Aprendendo de maneira divertida!</h2>
                         <img src={exemplo_jogo} alt="exemplo_jogo"/>
                     </div>
                 </section>
-                <section className="secao3">
+                <section id="secao3" className="secao3">
                     <div class="container">
                         <div class="content">
                             <h2>Impactos Negativos do Problema</h2>

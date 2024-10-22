@@ -15,11 +15,11 @@ const Footer=()=>{
         <FooterStyle>
             <footer>
                 <ul className="social-icon">
-                    <li><a href="#"><FaApple/></a></li>
-                    <li><a href="#"><FaFacebook/></a></li>
-                    <li><a href="#"><FaLinkedin/></a></li>
-                    <li><a href="#"><FaInstagram/></a></li>
-                    <li><a href="#"><BiLogoPlayStore/></a></li>
+                    <li><a href="https://www.apple.com/br/app-store/"><FaApple/></a></li>
+                    <li><a href="https://pt-br.facebook.com/"><FaFacebook/></a></li>
+                    <li><a href="https://br.linkedin.com/?original_referer=https%3A%2F%2Fwww.bing.com%2F"><FaLinkedin/></a></li>
+                    <li><a href="https://www.instagram.com/"><FaInstagram/></a></li>
+                    <li><a href="https://play.google.com/store/games?device=windows"><BiLogoPlayStore/></a></li>
                 </ul>
 
                 <ul className="menu">

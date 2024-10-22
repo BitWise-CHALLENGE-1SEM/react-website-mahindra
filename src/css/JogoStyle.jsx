@@ -1,209 +1,148 @@
 import styled from "styled-components";
-import "../css/base.css"
-export const JogoStyle = styled.section`
+import "../css/base.css";
 
-*{
+export const JogoStyle = styled.section`
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-.content{
-    padding-top: 20vh;
-    background-color: var(--color5);
 
-}
-.game-board{
-    
+.content {
     width: 100%;
-    height: 500px;
+    position: relative;
+    display: block;
+    padding-top: 5%;
+    background-color: var(--color5);
+}
+
+.game-board {
+    width: 100%;
+    height: 70vh;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
     background: linear-gradient(#87CEEB, #E0F6FF);
 }
 
-.pipe{
-    position: absolute;
-    margin-bottom: 50px;
-    bottom: 0;
-    width: 90px;
-    height: 20px;
+.attackzone {
+    position: relative;
+    height: 20%;
+    transform: translateX(100%) translateY(30%);
     animation: pipe-animation 2s infinite linear;
 }
 
-.mario{
+.game-holder {
     position: absolute;
-    bottom: 200px;
-    width: 150px;
-    
+    height: 100%;
+    width: 100%;
 }
-.up{
-    animation: up 500ms ease-out;
-    margin-bottom: +200px;
-}
-.down{
-    animation: down 500ms ease-out;
-    margin-bottom: -200px;
-}
-.removeup{
-    animation: reverseup 500ms ease-out;
-    margin-bottom: 0px;
-}
-.removedown{
-    animation: reversedown 500ms ease-out;
-    margin-bottom: 0px;
-}
-/*.jump{
-    animation: jump 500ms ease-in-out;
-}*/
 
-.clouds{
+.carro {
+    transition: 1s ease-out;
+    position: relative;
+    height: 33%;
+}
+
+.track {
     position: absolute;
-    height: 500px;
+    height: 100%;
     width: 200%;
-    animation: clouds-animation 5s infinite linear;
+    animation: clouds-animation 2s infinite linear;
     margin-right: -100%;
 }
 
-
-/* .game-over{
-    position: absolute;
-    font-size: 23px;
-    font-weight: bold;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 0;
-    padding: 10px;
-    width: 200px;
-    height: 50px;
-    cursor: pointer;
-    border-radius: 4px;
-    background-color: rgb(212, 69, 33);
-    z-index: 999;
-} */
-
-.game-over:hover{
+.game-over:hover {
     background-color: #E0F6FF;
 }
 
-.teclas{
+.teclas {
     padding: 5vh;
     display: grid;
-    grid-template-columns: (1fr,1fr); 
+    grid-template-columns: repeat(2, 1fr); // Correção aqui para usar repeat
     justify-content: center;
     gap: 5vh;
 }
 
-.grid1{
-    order: 1;
-}
-.grid2{
-    order: 2;
-}
-.teclas img{
+.teclas img {
     height: 8vh;
 }
-h1{
+
+h1 {
     display: flex;
-    color:#E0F6FF;
+    color: #E0F6FF;
     justify-content: center;
     font-size: 6vh;
 }
-.container-infos{
+
+.container-infos {
     position: relative;
     padding: 3vh;
 }
-.infos{
+
+.infos {
     padding: 9vh;
     display: flex;
     align-items: center;
     color: #E0F6FF;
     border: solid;
 }
-.infos span{
+
+.infos span {
     padding-left: 3vh;
     font-size: 3vh;
 }
-.infos img{
+
+.infos img {
     height: 15vh;
 }
 
 @keyframes pipe-animation {
-    from{
+    from {
         right: -80px;
     }
-    
-    to{
+    to {
         right: 100%;
     }
 }
-@keyframes up {
-    from{
-        margin-bottom: 0px;
-    }
-    to{
-        margin-bottom: +200px;
-    }
-}
-@keyframes reverseup {
-    from{
-        margin-bottom: +200px;
-    }    
-    to{
-        margin-bottom: 0px;
-    }
-}
-@keyframes down {
-    from{
-        margin-bottom: 0px;
-    }
-    to{
-        margin-bottom: -200px;
-    }
-}
-@keyframes reversedown {
-    from{
-        margin-bottom: -200px;
-    }
-    to{
-        margin-bottom: 0px;
-    }
-}
-/*
-@keyframes jump {
-    0%{
-        bottom: 0;
-    }
-    
-    40%{
-        bottom: 180px;
-    }
 
-    50%{
-        bottom: 180px;
-    }
-
-    60%{
-        bottom: 180px;
-    }
-
-    100%{
-        bottom: 0;
-    }
-}*/
-
-@keyframes clouds-animation{
-    from{
+@keyframes clouds-animation {
+    from {
         right: 0px;
     }
-
-    to{
+    to {
         right: 100%;
     }
 }
 
+// Media Queries para responsividade
+@media (max-width: 768px) {
+    .teclas img {
+        height: 5vh; // Diminuir o tamanho das imagens
+    }
+    
+    h1 {
+        font-size: 5vh; // Ajustar tamanho da fonte
+    }
 
+    .infos span {
+        font-size: 2.5vh; // Ajustar tamanho da fonte
+    }
+}
 
+@media (max-width: 480px) {
+    .teclas img {
+        height: 4vh; // Diminuir ainda mais
+    }
 
-`
+    h1 {
+        font-size: 4vh; // Diminuir tamanho da fonte
+    }
+
+    .infos {
+        flex-direction: column; // Mudar para coluna em telas menores
+        align-items: flex-start;
+    }
+}
+`;
+

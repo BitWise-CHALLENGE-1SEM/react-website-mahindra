@@ -2,6 +2,7 @@ import { ClientesStyle } from "../css/ClientesStyle";
 import { useParams, Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 
+import Nav from "../components/Nav"
 const Clientes=()=>{
 
     let {id} = useParams();
@@ -32,48 +33,61 @@ const Clientes=()=>{
     };
 
     return(<>
+        <Nav buttons={["Home"]}/>
         <ClientesStyle>
-            <section className="usuario">
-                <h1>Cadastrar Usuários</h1>
-                <form onSubmit={handleSubmit}>
-                    <input
-                        type="text"
-                        name="usuario"
-                        value={registrados.usuario}
-                        placeholder="Digite o nome de usuário"
-                        onChange={handleChange}
-                        required
-                    />
+            <body>
+                <section className="usuario">
+                    <div class="wrapper">
+                        <h1>Cadastrar Usuários</h1>
+                        <form onSubmit={handleSubmit}>
+                            <div class="input-box">
+                                <input
+                                    type="text"
+                                    name="usuario"
+                                    value={registrados.usuario}
+                                    placeholder="Digite o nome de usuário"
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
 
-                    <input
-                        type="text"
-                        name="email"
-                        value={registrados.email}
-                        placeholder="Digite o email do usuário"
-                        onChange={handleChange}
-                        required
-                    />
+                            <div class="input-box">
+                                <input
+                                    type="text"
+                                    name="email"
+                                    value={registrados.email}
+                                    placeholder="Digite o email do usuário"
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
 
-                    <input
-                        type="password"
-                        name="senha"
-                        value={registrados.senha}
-                        placeholder="Digite sua senha"
-                        onChange={handleChange}
-                        required
-                    />
-                    
-                    <input
-                        type="text"
-                        name="telefone"
-                        value={registrados.telefone}
-                        placeholder="Digite o número de telefone"
-                        onChange={handleChange}
-                    />
+                            <div class="input-box">
+                                <input
+                                    type="password"
+                                    name="senha"
+                                    value={registrados.senha}
+                                    placeholder="Digite sua senha"
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
 
-                    <button type="submit" onSubmit={handleSubmit}>Cadastrar</button>
-                </form>
-            </section>
+                            <div class="input-box">
+                                <input
+                                    type="text"
+                                    name="telefone"
+                                    value={registrados.telefone}
+                                    placeholder="Digite o número de telefone"
+                                    onChange={handleChange}
+                                />
+                            </div>
+
+                            <button type="submit" class="btn" onSubmit={handleSubmit}>Cadastrar</button>
+                        </form>
+                    </div>
+                </section>
+            </body>
         </ClientesStyle>
     </>)
 }

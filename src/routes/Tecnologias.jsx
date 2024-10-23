@@ -7,7 +7,7 @@ const Tecnologias=()=>{
         <TecnologiasStyle>
             <Nav buttons={["Home","Game",sessionStorage.getItem("usuario") ? "" : "Login"]}/>
             <section className="corpo">
-                <section className="secao3">
+                <section className="secao1">
                     <h1>A Fórmula-E promove inovações tecnológicas.</h1>
                         <div className="container">
                             <div className="content">

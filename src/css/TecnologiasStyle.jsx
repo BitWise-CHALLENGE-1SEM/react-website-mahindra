@@ -3,11 +3,11 @@ import "../css/base.css"
 export const TecnologiasStyle = styled.section`
     
 
-.secao3{
+.secao1{
     padding-top: 100px;
     background-image: radial-gradient( #ececec , #dddddd);
 }
-.secao3 h1{
+.secao1 h1{
     text-align: center;
     color: white;
     font-size: 37px;
@@ -36,7 +36,7 @@ export const TecnologiasStyle = styled.section`
     place-items: center;
     overflow: hidden;
     border-radius: 20px;
-    background: var(--color5);
+    background: var(--color2);
 }   
 
 .content h2{
@@ -67,7 +67,7 @@ export const TecnologiasStyle = styled.section`
 .content::after{
     content: "";
     position: absolute;
-    background: var(--color5);
+    background: var(--color3);
     inset: 5px;
     border-radius: 15px;
 }

@@ -111,6 +111,8 @@ export const TecnologiasStyle = styled.section`
     text-align: center;
     align-items: center;
     background-image: radial-gradient(rgb(68, 68, 68), rgb(34, 34, 34));
+    border-bottom: 8px solid var(--color1);
+
 } 
 .order-1{
     order:1;
@@ -161,8 +163,51 @@ export const TecnologiasStyle = styled.section`
     filter:drop-shadow(var(--color1) 0 0 2rem)
 }
 
-.lista{
-    list-style: circle;
-    color: #dddddd;
+/* secao 3 */
+.secao3{
+    padding: 5vh;
+    background-color: var(--color5);
+}
+.secao3 h1{
+    display: flex;
+    justify-content: center;
+    color: var(--color4);
+    font-size: 2.75rem;
+    margin: 5vh;
+    border-bottom: solid;
+}
+.secao3 h2{
+    display: flex;
+    justify-content: center;
+    color: var(--color1);
+    font-size: 2rem;
+}
+.frame{
+    display: flex;
+    justify-content: center;
+}
+
+.video-background{
+    filter: brightness(110%);
+    filter: 
+    display: flex;
+
+}
+.conteudos{
+    display: flex;
+    border-bottom: dashed;
+    color: var(--color4);
+    margin-bottom: 3vh;
+}
+.conteudo1, .conteudo2{
+    text-align: center;
+    color: var(--color4);
+    font-size: 1.5rem;
+    padding: 5vh;
+    width: 90%;
+}
+.conteudo1 h3, .conteudo2 h3{
+    color: var(--color1);
+    font-size: 2rem;
 }
 `

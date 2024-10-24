@@ -31,12 +31,12 @@ const Nav=(props)=>{
         Home:<li>
             <button onClick={()=>{
             navigate("/");
-        }} className="parallelogram-button"><span>Home</span></button>
+        }} className="parallelogram-button"><span>HOME</span></button>
         </li>,
         Tecnologias:<li>
            <button onClick={()=>{
             navigate("/tecnologias");
-        }} className="parallelogram-button"><span>Tecnologias</span></button>
+        }} className="parallelogram-button"><span>TECNOLOGIAS</span></button>
         </li>,
         Game:<li>
             <button onClick={()=>{

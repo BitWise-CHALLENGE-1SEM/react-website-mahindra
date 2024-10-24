@@ -210,4 +210,7 @@ export const TecnologiasStyle = styled.section`
     color: var(--color1);
     font-size: 2rem;
 }
+
+
+
 `

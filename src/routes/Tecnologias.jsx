@@ -5,7 +5,6 @@ import acelerando from "../assets/audios/acelerando.mp3"
 import video from "../assets/attackmodevideo.mp4"
 import fanboost from "../assets/fanboostvideo.mp4"
 import ReactPlayer from "react-player"
-import { BiBoltCircle } from "react-icons/bi"
 const Tecnologias=()=>{
     function animated(){
         const carro = document.querySelector('.image');

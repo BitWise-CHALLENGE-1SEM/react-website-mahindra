@@ -28,8 +28,8 @@ export const JogoStyle = styled.section`
 .attackzone {
     position: relative;
     height: 20%;
-    transform: translateX(100%) translateY(30%);
-    animation: pipe-animation 2s infinite linear;
+    transform: translateY(30%);
+    transition: 1s
 }
 
 .game-holder {
@@ -95,15 +95,6 @@ h1 {
 
 .infos img {
     height: 15vh;
-}
-
-@keyframes pipe-animation {
-    from {
-        right: -80px;
-    }
-    to {
-        right: 100%;
-    }
 }
 
 @keyframes clouds-animation {

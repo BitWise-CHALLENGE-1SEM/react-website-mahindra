@@ -26,10 +26,10 @@ export const JogoStyle = styled.section`
 }
 
 .attackzone {
-    position: relative;
+    position: absolute;
     height: 20%;
     transform: translateY(30%);
-    transition: 1s
+    transition: .2s
 }
 
 .game-holder {

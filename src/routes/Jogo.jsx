@@ -48,7 +48,7 @@ const Jogo = () => {
 
     return (
         <>
-            <Nav buttons={["Home"]} />
+            <Nav buttons={["Home","Tecnologias"]} />
             <JogoStyle>
                 <section className='content'>
                     <div className="game-board">

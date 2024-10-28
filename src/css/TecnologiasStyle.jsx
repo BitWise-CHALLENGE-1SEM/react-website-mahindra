@@ -189,7 +189,6 @@ export const TecnologiasStyle = styled.section`
 
 .video-background{
     filter: brightness(110%);
-    filter: 
     display: flex;
 
 }
@@ -198,6 +197,8 @@ export const TecnologiasStyle = styled.section`
     border-bottom: dashed;
     color: var(--color4);
     margin-bottom: 3vh;
+    gap: 5vh;
+    padding: 5vh;
 }
 .conteudo1, .conteudo2{
     text-align: center;
@@ -205,6 +206,9 @@ export const TecnologiasStyle = styled.section`
     font-size: 1.5rem;
     padding: 5vh;
     width: 90%;
+    background-color: var(--color3);
+    border: solid;
+    border-radius: 5rem;
 }
 .conteudo1 h3, .conteudo2 h3{
     color: var(--color1);
@@ -262,4 +266,6 @@ export const TecnologiasStyle = styled.section`
 .arrow{
     transition: transform .3s linear;
 }
+
+
 `

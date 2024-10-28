@@ -12,9 +12,20 @@ import audio from "../assets/audios/atack_mode_sound.mp3";
 import Nav from "../components/Nav";
 
 const Jogo = () => {
-
+    const travelTime = 3;
     let jsPosY = 2;
     const [PosY, setPosY] = useState(jsPosY);
+    const [objects, setObjects] = useState([
+        {
+            id: Date.now(),
+            element:"attack",
+            line:1,
+            path:100,
+            function:()=>{
+                
+            },
+        }
+    ]);
     
     useEffect(() => {
         const changeAlign = (offset) => {
@@ -36,31 +47,56 @@ const Jogo = () => {
         };
     }, []);
 
+    let tick = Date.now()
     useEffect(() => {
-        const loop = setInterval(() => {
-            // const pipePosition = pipeRef.current?.offsetLeft;
-            // const cloudsPosition = cloudsRef.current?.offsetLeft;
-            // Lógica do jogo aqui
+        const render = setInterval(() => {
+            const delta = (Date.now() - tick) / 100;
+            const updatedObjects = objects.map((object, index) => {
+                if (object.path <= -120) {
+                    return {}
+                } else {
+                    return {
+                        ...object,
+                        path: object.path - 3 * delta
+                    };
+                }
+            }).filter(object => object !== null); // Remove os objetos marcados
+        
+            setObjects(updatedObjects); // Atualiza o estado com os objetos filtrados
+            tick = Date.now();
         }, 10);
+        
 
-        return () => clearInterval(loop);
-    }, []);
+        const createAttack = setInterval(()=>{
+            let newObject = {
+                id: Date.now(),
+                element:"attack",
+                path:100
+            }
+            setObjects(prevObjects => [...prevObjects, newObject]);
+        },200)
+
+        return () =>{ 
+            clearInterval(render)
+            clearInterval(createAttack)
+        };
+    }, [tick]);
 
     return (
         <>
-            <Nav buttons={["Home"]} />
+            <Nav buttons={["Home","Tecnologias"]} />
             <JogoStyle>
                 <section className='content'>
                     <div className="game-board">
                         <img src={imgPista} className="track"/>
 
                         <div className="game-holder">
-                            <img src={imgAttack} className="attackzone"/>
+                            {objects.map((object,_)=>(
+                                <img src={imgAttack} style={{ marginLeft: `${object.path}%` }} className="attackzone" />
+                            ))}
                         </div>
 
-                        <img src={imgCarro} className="carro" style={{ marginTop: `${(PosY-1)*11}%` }} />
-                        <audio src={audio} className="audio"></audio>
-                        <div className="score">0</div>
+                        <img src={imgCarro} className="carro" style={{ marginTop: `${(PosY-1)*11}%` }} />                        
                     </div>
                     <div className="teclas">
                         <div className='grid1'>

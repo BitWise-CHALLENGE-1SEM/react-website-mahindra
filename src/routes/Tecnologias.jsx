@@ -84,16 +84,35 @@ const Tecnologias=()=>{
                     
                     <div className="conteudos">
                         <div className="conteudo1">
-                            <h3>DESCRIÇÃO</h3>
-                            <p>Descrição: Para ativar o Attack Mode, os pilotos precisam passar por uma zona de ativação específica na pista, que geralmente está fora da linha de corrida ideal. Isso significa que eles precisam perder um certo tempo de ritmo naquele momento,
-                                o que pode ser arriscado, mas recompensador. Uma vez ativado, o Attack Mode proporciona um aumento temporário de potência ao carro. Este aumento pode variar, mas geralmente adiciona cerca de 35 kW de potência extra
-                            </p>
+                        <div className="container-acc">
+                                <div className="accordion">
+                                    <button className="accordion-header"> 
+                                        <span>O que é ATTACK MODE? </span>
+                                        <i className="arrow"><FaChevronDown/></i>
+                                    </button>
+                                    <div className="accordion-body">
+                                        <p>Para ativar o Attack Mode, os pilotos precisam passar por uma zona de ativação específica na pista, que geralmente está fora da linha de corrida ideal. Isso significa que eles precisam perder um certo tempo de ritmo naquele momento,
+                                            o que pode ser arriscado, mas recompensador. Uma vez ativado, o Attack Mode proporciona um aumento temporário de potência ao carro. Este aumento pode ser ativo quando o piloto quiser,  geralmente adicionando cerca de 25 kW de potência extra.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>  
+                            
                         </div>    
                         <div className="conteudo2">
-                            <h3>IMPACTO</h3>
-                            <p>Aumenta a competitividade e a imprevisibilidade das corridas, A duração do Attack Mode e o número de ativações permitidas por corrida podem variar. Os pilotos e suas equipes precisam decidir estrategicamente quando ativar o modo para obter a maior vantagem possível, seja para ultrapassar um concorrente ou defender uma posição.
-                            Importante ressaltar que os carros de Fórmula E possuem luzes LED no Halo (a estrutura de proteção sobre o cockpit) que acendem para indicar quando o piloto está em Attack Mode.
-                            </p>
+                            <div className="container-acc">
+                                <div className="accordion">
+                                    <button className="accordion-header"> 
+                                        <span>Qual o seu IMPACTO? </span>
+                                        <i className="arrow"><FaChevronDown/></i>
+                                    </button>
+                                    <div className="accordion-body">
+                                        <p>Aumenta a competitividade e a imprevisibilidade das corridas, A duração do Attack Mode e o número de ativações permitidas por corrida podem variar. Os pilotos e suas equipes precisam decidir estrategicamente quando ativar o modo para obter a maior vantagem possível, seja para ultrapassar um concorrente ou defender uma posição.
+                                        Importante ressaltar que os carros de Fórmula E possuem luzes LED no Halo (a estrutura de proteção sobre o cockpit) que acendem para indicar quando o piloto está em Attack Mode.
+                                        </p>    
+                                    </div>
+                                </div>
+                            </div>  
                         </div>
                     </div>
                     <h2>Fanboost</h2>
@@ -108,25 +127,31 @@ const Tecnologias=()=>{
                     </div>
                     <div className="conteudos">
                         <div className="conteudo1">
-                            <h3>DESCRIÇÃO</h3>
-                            <p>O Fanboost permite que os fãs votem online para dar um aumento de potência temporário aos seus pilotos favoritos durante a corrida. Os 3 pilotos com mais votos recebem um impulso extra de energia que pode ser usado a qualquer momento.
-                            </p>
+                            <div className="container-acc">
+                                <div className="accordion">
+                                    <button className="accordion-header"> 
+                                        <span>O que é FANBOOST? </span>
+                                        <i className="arrow"><FaChevronDown/></i>
+                                    </button>
+                                    <div className="accordion-body">
+                                        <p>O Fanboost permite que os fãs votem online para dar um aumento de potência temporário aos seus pilotos favoritos durante a corrida. Os 3 pilotos com mais votos recebem um impulso extra de energia que pode ser usado a qualquer momento.
+                                        </p>    
+                                    </div>
+                                </div>
+                            </div>                            
                         </div>    
                         <div className="conteudo2">
-                            <h3>IMPACTO</h3>
-                            <p>Permite aos fãs participarem diretamente na corrida, permitindo que influenciem o resultado e criando uma conexão mais forte entre os pilotos e o público</p>
-                        </div>
-                    </div>
-                    {/* fazendo accordion */}
-                    <div className="container-acc">
-                        <div className="accordion">
-                            <button className="accordion-header"> 
-                                <span>Lorem ipsum dolor sit?</span>
-                                <i className="arrow"><FaChevronDown/></i>
-                            </button>
-                            <div className="accordion-body">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            </div>
+                            <div className="container-acc">
+                                <div className="accordion">
+                                    <button className="accordion-header"> 
+                                        <span>Qual o seu IMPACTO? </span>
+                                        <i className="arrow"><FaChevronDown/></i>
+                                    </button>
+                                    <div className="accordion-body">
+                                        <p>Permite aos fãs participarem diretamente na corrida, permitindo que influenciem o resultado e criando uma conexão mais forte entre os pilotos e o público</p>
+                                    </div>
+                                </div>
+                            </div>  
                         </div>
                     </div>
                 </section>

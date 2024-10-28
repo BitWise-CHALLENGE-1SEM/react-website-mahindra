@@ -206,8 +206,6 @@ export const TecnologiasStyle = styled.section`
     font-size: 1.5rem;
     padding: 5vh;
     width: 90%;
-    background-color: var(--color3);
-    border: solid;
     border-radius: 5rem;
 }
 .conteudo1 h3, .conteudo2 h3{
@@ -237,7 +235,7 @@ export const TecnologiasStyle = styled.section`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     cursor: pointer;
 }
 .accordion-header span{
@@ -245,10 +243,11 @@ export const TecnologiasStyle = styled.section`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: var(--color1);
 }
 .accordion-body{
-    color: var(--color1);
-    font-size: 1rem;
+    color: var(--color6);
+    font-size: 1.5rem;
     opacity: 0;
     height: 0;
     transition: opacity 1.5s;

@@ -210,4 +210,56 @@ export const TecnologiasStyle = styled.section`
     color: var(--color1);
     font-size: 2rem;
 }
+
+/* accordion */
+
+.container-acc{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+.accordion{
+    background-color: var(--color4);
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px rgba(0,0,0, 0.1);
+}
+.accordion-header{
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.accordion-header span{
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.accordion-body{
+    color: var(--color1);
+    font-size: 1rem;
+    opacity: 0;
+    height: 0;
+    transition: opacity 1.5s;
+    overflow: hidden;
+}
+.accordion-body.active{
+    height: 100%;
+    opacity: 1;
+    padding: 5px 0px;
+    
+}
+.accordion:has(.active) .arrow{
+    transform: rotate(180deg);
+}
+.arrow{
+    transition: transform .3s linear;
+}
 `

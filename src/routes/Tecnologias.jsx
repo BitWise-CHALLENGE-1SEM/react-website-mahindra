@@ -5,7 +5,10 @@ import acelerando from "../assets/audios/acelerando.mp3"
 import video from "../assets/attackmodevideo.mp4"
 import fanboost from "../assets/fanboostvideo.mp4"
 import ReactPlayer from "react-player"
-import { BiBoltCircle } from "react-icons/bi"
+import { FaChevronDown } from "react-icons/fa";
+import { FaChevronUp } from "react-icons/fa";
+
+
 const Tecnologias=()=>{
     function animated(){
         const carro = document.querySelector('.image');
@@ -18,6 +21,18 @@ const Tecnologias=()=>{
         const x = document.querySelector(".musica")
         x.play()
     }
+
+
+    window.onload = function() {
+       const accordions = document.querySelectorAll(".accordion");
+        accordions.forEach(accordions => {
+            accordions.addEventListener("click", () => {
+                const body = accordions.querySelector(".accordion-body");
+                body.classList.toggle("active")
+            })
+        }) 
+      };
+      
     
     return(
         <>
@@ -102,7 +117,18 @@ const Tecnologias=()=>{
                             <p>Permite aos fãs participarem diretamente na corrida, permitindo que influenciem o resultado e criando uma conexão mais forte entre os pilotos e o público</p>
                         </div>
                     </div>
-                    
+                    {/* fazendo accordion */}
+                    <div className="container-acc">
+                        <div className="accordion">
+                            <button className="accordion-header"> 
+                                <span>Lorem ipsum dolor sit?</span>
+                                <i className="arrow"><FaChevronDown/></i>
+                            </button>
+                            <div className="accordion-body">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </section>
         </TecnologiasStyle>

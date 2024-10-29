@@ -135,5 +135,33 @@ h1 {
         align-items: flex-start;
     }
 }
+.battery-bar {
+    position: absolute;
+    top: 40px; /* Posição da barra para baixo */
+    left: 75%; /* Alinha a barra mais à esquerda */
+    width: 20%; /* Aumenta a largura da barra */
+    height: 15px; /* Altura da barra */
+    background-color: #00ff00; /* Cor verde vibrante */
+    transition: width 0.2s; /* Animação ao mudar a largura */
+    z-index: 10; /* Garante que a barra esteja acima de outros elementos */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+.battery-label {
+    position: absolute;
+    top: 15px; /* Posição do texto acima da barra */
+    left: 80%; /* Alinha o texto à esquerda */
+    color: white; /* Cor do texto */
+    font-weight: bold; /* Texto em negrito */
+    font-size: 16px; /* Tamanho do texto */
+    z-index: 15; /* Garante que o texto esteja acima da barra */
+    text-align: center; /* Centraliza o texto */
+    width: 10%; /* Largura igual à da barra */
+}
+
+
+
+
+
 `;
 

@@ -71,7 +71,9 @@ const Jogo = () => {
         const createAttack = () => {
             const newObject = {
                 id: Date.now(),
-                element: "attack",
+                element: "attackzone",
+                image: imgAttack,
+                line: Math.round(Math.random()*2+1),
                 path: 100,
             };
             console.log(`Created: ${newObject.element} at path: ${newObject.path}`);
@@ -79,7 +81,7 @@ const Jogo = () => {
             setObjects(prevObjects => [...prevObjects, newObject]);
         };
     
-        attackInterval = setInterval(createAttack, 1000);
+        attackInterval = setInterval(createAttack, 5000);
         requestAnimationFrame(render);
     
         // Eventos de foco e desfoco
@@ -110,9 +112,17 @@ const Jogo = () => {
                     <div className="game-board">
                         <img src={imgPista} className="track" />
                         <div className="game-holder">
-                            {objects.map((object) => (
-                                <img key={`${object.id}-${object.path}`} src={imgAttack} style={{ marginLeft: `${object.path}%` }} className="attackzone" />
-                            ))}
+                            {objects.map((object) => {
+                                return <img
+                                    key={`${object.id}-${object.path}`}
+                                    className={object.element}
+                                    src={object.image}
+                                    style={{
+                                        marginLeft: `${object.path}%`,
+                                        marginTop: `${(object.line - 1) * 11}%`
+                                    }}
+                                />
+                            })}
                         </div>
                         <img src={imgCarro} className="carro" style={{ marginTop: `${(PosY - 1) * 11}%` }} />
                     </div>

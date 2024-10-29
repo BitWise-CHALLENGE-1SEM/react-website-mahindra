@@ -80,19 +80,9 @@ const Jogo = () => {
     
         attackInterval = setInterval(createAttack, 5000);
         requestAnimationFrame(render);
-
-        window.addEventListener('focus', ()=>{
-            running = true;
-            requestAnimationFrame(render);
-        });
-        window.addEventListener('blur', ()=>{
-            running = false;
-        });
     
         return () => {
             clearInterval(attackInterval);
-            window.removeEventListener('focus', handleFocus);
-            window.removeEventListener('blur', handleBlur);
         };
     }, []);
 

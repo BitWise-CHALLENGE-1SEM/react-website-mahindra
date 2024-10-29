@@ -45,10 +45,10 @@ const Jogo = () => {
     useEffect(() => {
         let tick = Date.now();
         let attackInterval;
-        let isRunning = true; // Variável para controlar se a animação deve rodar
+        let running = true;
     
         const render = () => {
-            if (!isRunning) return; // Não renderizar se não estiver em foco
+            if (!running) return;
             const now = Date.now();
             const delta = (now - tick) / 1000;
             tick = now;
@@ -56,12 +56,11 @@ const Jogo = () => {
             setObjects((prevObjects) => {
                 const updatedObjects = prevObjects.map((object) => {
                     if (object.path <= -10) {
-                        console.log(`${object.element} DELETED`);
+                        // console.log(`${object.element} DELETADO`);
                         return null;
                     }
                     return { ...object, path: object.path - 5 * delta };
                 }).filter(object => object !== null);
-    
                 return updatedObjects;
             });
     
@@ -75,27 +74,20 @@ const Jogo = () => {
                 image: imgAttack,
                 line: Math.round(Math.random()*2+1),
                 path: 100,
-            };
-            console.log(`Created: ${newObject.element} at path: ${newObject.path}`);
-    
+            };    
             setObjects(prevObjects => [...prevObjects, newObject]);
         };
     
         attackInterval = setInterval(createAttack, 5000);
         requestAnimationFrame(render);
-    
-        // Eventos de foco e desfoco
-        const handleFocus = () => {
-            isRunning = true;
-            requestAnimationFrame(render); // Reiniciar a animação
-        };
-        
-        const handleBlur = () => {
-            isRunning = false; // Pausar a animação
-        };
-    
-        window.addEventListener('focus', handleFocus);
-        window.addEventListener('blur', handleBlur);
+
+        window.addEventListener('focus', ()=>{
+            running = true;
+            requestAnimationFrame(render);
+        });
+        window.addEventListener('blur', ()=>{
+            running = false;
+        });
     
         return () => {
             clearInterval(attackInterval);
@@ -119,12 +111,12 @@ const Jogo = () => {
                                     src={object.image}
                                     style={{
                                         marginLeft: `${object.path}%`,
-                                        marginTop: `${(object.line - 1) * 11}%`
+                                        marginTop: `${(object.line-1)*11}%`
                                     }}
                                 />
                             })}
                         </div>
-                        <img src={imgCarro} className="carro" style={{ marginTop: `${(PosY - 1) * 11}%` }} />
+                        <img src={imgCarro} className="carro" style={{marginTop:`${(PosY-1)*11}%`}} />
                     </div>
                     <div className="teclas">
                         <div className='grid1'>

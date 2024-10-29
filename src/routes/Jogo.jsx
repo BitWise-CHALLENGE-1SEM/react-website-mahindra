@@ -1,36 +1,31 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { JogoStyle } from "../css/JogoStyle.jsx";
 import tecla_s from "../assets/game/tecla-s-do-teclado.png";
 import tecla_w from "../assets/game/tecla-w-de-um-teclado-de-computador.png";
-
 import imgCarro from "../assets/game/carro.png";
 import imgAttack from "../assets/game/attackzone.png";
 import imgPista from "../assets/game/pista de fundo.png";
-
 import imgFrenagem from "../assets/game/zona-de-frenagem.png";
-import audio from "../assets/audios/atack_mode_sound.mp3";
 import Nav from "../components/Nav";
 
 const Jogo = () => {
-    const travelTime = 3;
-    let jsPosY = 2;
-    const [PosY, setPosY] = useState(jsPosY);
+    const [PosY, setPosY] = useState(2);
     const [objects, setObjects] = useState([
-        {
-            id: Date.now(),
-            element:"attack",
-            line:1,
-            path:100,
-            function:()=>{
+        // {
+        //     id: Date.now(),
+        //     element:"attack",
+        //     line:1,
+        //     path:100,
+        //     function:()=>{
                 
-            },
-        }
+        //     },
+        // }
     ]);
-    
+
     useEffect(() => {
         const changeAlign = (offset) => {
-            jsPosY = Math.min(Math.max(jsPosY + offset, 1), 3);
-            setPosY(jsPosY);
+            const newPosY = Math.min(Math.max(PosY + offset, 1), 3);
+            setPosY(newPosY);
         };
 
         const handleKeyDown = (event) => {
@@ -45,58 +40,81 @@ const Jogo = () => {
         return () => {
             window.removeEventListener('keydown', handleKeyDown);
         };
-    }, []);
+    }, [PosY]);
 
-    let tick = Date.now()
     useEffect(() => {
-        const render = setInterval(() => {
-            const delta = (Date.now() - tick) / 100;
-            const updatedObjects = objects.map((object, index) => {
-                if (object.path <= -120) {
-                    return {}
-                } else {
-                    return {
-                        ...object,
-                        path: object.path - 3 * delta
-                    };
-                }
-            }).filter(object => object !== null); // Remove os objetos marcados
-        
-            setObjects(updatedObjects); // Atualiza o estado com os objetos filtrados
-            tick = Date.now();
-        }, 10);
-        
-
-        const createAttack = setInterval(()=>{
-            let newObject = {
-                id: Date.now(),
-                element:"attack",
-                path:100
-            }
-            setObjects(prevObjects => [...prevObjects, newObject]);
-        },200)
-
-        return () =>{ 
-            clearInterval(render)
-            clearInterval(createAttack)
+        let tick = Date.now();
+        let attackInterval;
+        let isRunning = true; // Variável para controlar se a animação deve rodar
+    
+        const render = () => {
+            if (!isRunning) return; // Não renderizar se não estiver em foco
+            const now = Date.now();
+            const delta = (now - tick) / 1000;
+            tick = now;
+    
+            setObjects((prevObjects) => {
+                const updatedObjects = prevObjects.map((object) => {
+                    if (object.path <= -10) {
+                        console.log(`${object.element} DELETED`);
+                        return null;
+                    }
+                    return { ...object, path: object.path - 5 * delta };
+                }).filter(object => object !== null);
+    
+                return updatedObjects;
+            });
+    
+            requestAnimationFrame(render);
         };
-    }, [tick]);
+    
+        const createAttack = () => {
+            const newObject = {
+                id: Date.now(),
+                element: "attack",
+                path: 100,
+            };
+            console.log(`Created: ${newObject.element} at path: ${newObject.path}`);
+    
+            setObjects(prevObjects => [...prevObjects, newObject]);
+        };
+    
+        attackInterval = setInterval(createAttack, 1000);
+        requestAnimationFrame(render);
+    
+        // Eventos de foco e desfoco
+        const handleFocus = () => {
+            isRunning = true;
+            requestAnimationFrame(render); // Reiniciar a animação
+        };
+        
+        const handleBlur = () => {
+            isRunning = false; // Pausar a animação
+        };
+    
+        window.addEventListener('focus', handleFocus);
+        window.addEventListener('blur', handleBlur);
+    
+        return () => {
+            clearInterval(attackInterval);
+            window.removeEventListener('focus', handleFocus);
+            window.removeEventListener('blur', handleBlur);
+        };
+    }, []);
 
     return (
         <>
-            <Nav buttons={["Home","Tecnologias"]} />
+            <Nav buttons={["Home", "Tecnologias"]} />
             <JogoStyle>
                 <section className='content'>
                     <div className="game-board">
-                        <img src={imgPista} className="track"/>
-
+                        <img src={imgPista} className="track" />
                         <div className="game-holder">
-                            {objects.map((object,_)=>(
-                                <img src={imgAttack} style={{ marginLeft: `${object.path}%` }} className="attackzone" />
+                            {objects.map((object) => (
+                                <img key={`${object.id}-${object.path}`} src={imgAttack} style={{ marginLeft: `${object.path}%` }} className="attackzone" />
                             ))}
                         </div>
-
-                        <img src={imgCarro} className="carro" style={{ marginTop: `${(PosY-1)*11}%` }} />                        
+                        <img src={imgCarro} className="carro" style={{ marginTop: `${(PosY - 1) * 11}%` }} />
                     </div>
                     <div className="teclas">
                         <div className='grid1'>

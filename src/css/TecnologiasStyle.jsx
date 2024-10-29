@@ -4,15 +4,15 @@ export const TecnologiasStyle = styled.section`
     
 
 .secao1{
-    padding-top: 100px;
+    padding-top: 10px;
     background-image: radial-gradient( #ececec , #dddddd);
 }
 .secao1 h1{
-    text-align: center;
     color: white;
     font-size: 37px;
-    text-align: center;
-    padding-bottom: 100px;
+    text-align: end;
+    padding-bottom: 50px;
+    padding-right: 50px;
     text-transform: uppercase;
     -webkit-text-stroke-color: black;
     -webkit-text-stroke-width: 1.5px;

@@ -13,7 +13,7 @@ export const JogoStyle = styled.section`
     position: relative;
     display: block;
     padding-top: 5%;
-    background-color: var(--color5);
+    background-image: radial-gradient( #444444 ,#222222 );
 }
 
 .game-board {
@@ -25,12 +25,6 @@ export const JogoStyle = styled.section`
     background: linear-gradient(#87CEEB, #E0F6FF);
 }
 
-.attackzone {
-    position: absolute;
-    height: 20%;
-    transform: translateY(30%);
-    transition: .2s
-}
 
 .game-holder {
     position: absolute;
@@ -135,8 +129,16 @@ h1 {
         align-items: flex-start;
     }
 }
-.battery-bar {
+
+.attackzone {
     position: absolute;
+    height: 20%;
+    transform: translateY(30%);
+    transition: .2s
+}
+
+.battery-bar {
+    position: relative;
     top: 40px; /* Posição da barra para baixo */
     left: 75%; /* Alinha a barra mais à esquerda */
     width: 20%; /* Aumenta a largura da barra */
@@ -148,18 +150,33 @@ h1 {
 }
 
 .battery-label {
-    position: absolute;
-    top: 15px; /* Posição do texto acima da barra */
-    left: 80%; /* Alinha o texto à esquerda */
-    color: white; /* Cor do texto */
-    font-weight: bold; /* Texto em negrito */
-    font-size: 16px; /* Tamanho do texto */
-    z-index: 15; /* Garante que o texto esteja acima da barra */
-    text-align: center; /* Centraliza o texto */
-    width: 10%; /* Largura igual à da barra */
+    position: relative;
+    transform: translateX(-50%);
+    left:50%;
+    width: 20%;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center
 }
 
+.top-frame{
+    top: 0;
+    z-index: 10;
+    position: absolute;
+    margin-left: 100%;
+    transform: translateX(-100%);
+    height: 75px;
+    width: 30%;
+    background-color: var(--color1);
+    clip-path: polygon(12% 100%, 0% 0%, 100% 0%, 100% 100%)
+}
 
+.battery{
+    background-color: var(--color2);
+    position: relative;
+    width: 30;
+}
 
 
 

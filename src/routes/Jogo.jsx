@@ -11,7 +11,7 @@ import Nav from "../components/Nav";
 const Jogo = () => {
     const [PosY, setPosY] = useState(2);
     const [objects, setObjects] = useState([]);
-    const [bateria, setBateria] = useState(100); // Estado da bateria
+    const [bateria, setBateria] = useState(100);
 
     useEffect(() => {
         const changeAlign = (offset) => {
@@ -81,12 +81,17 @@ const Jogo = () => {
             <Nav buttons={["Home", "Tecnologias"]} />
             <JogoStyle>
             <section className='content'>
-                <div className="battery-label">Bateria</div> {/* Texto acima da barra */}
-                <div className="battery-bar">
-                    <div className="battery-value">
-                        
+                <div className="top-frame">
+
+                    <div className="battery">
+                        <h4 className="battery-label">Bateria</h4>
+                        <div className="battery-bar">
+                            <div className="battery-value"/>
+                        </div>
                     </div>
+
                 </div>
+
                 <div className="game-board">
                     <img src={imgPista} className="track" />
                     <div className="game-holder">

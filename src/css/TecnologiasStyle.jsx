@@ -67,7 +67,7 @@ export const TecnologiasStyle = styled.section`
 .content::after{
     content: "";
     position: absolute;
-    background: var(--color3);
+    background: var(--color2);
     inset: 5px;
     border-radius: 15px;
 }
@@ -194,19 +194,22 @@ export const TecnologiasStyle = styled.section`
 }
 .conteudos{
     display: flex;
+    flex-wrap: wrap;
     border-bottom: dashed;
     color: var(--color4);
     margin-bottom: 3vh;
     gap: 5vh;
     padding: 5vh;
+    justify-content: center;
 }
 .conteudo1, .conteudo2{
     text-align: center;
     color: var(--color4);
     font-size: 1.5rem;
-    padding: 5vh;
-    width: 90%;
+    padding: 1rem;
+    width: 500px;
     border-radius: 5rem;
+    font-weight: 700;
 }
 .conteudo1 h3, .conteudo2 h3{
     color: var(--color1);
@@ -244,6 +247,8 @@ export const TecnologiasStyle = styled.section`
     overflow: hidden;
     text-overflow: ellipsis;
     color: var(--color1);
+    font-weight: 700;
+    padding: .3rem;
 }
 .accordion-body{
     color: var(--color6);
@@ -256,7 +261,7 @@ export const TecnologiasStyle = styled.section`
 .accordion-body.active{
     height: 100%;
     opacity: 1;
-    padding: 5px 0px;
+    padding: 1rem;
     
 }
 .accordion:has(.active) .arrow{

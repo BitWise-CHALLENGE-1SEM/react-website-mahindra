@@ -50,7 +50,6 @@ const Jogo=()=>{
             return newLine;
         };
 
-
         let UID = 0;
         const getUID=()=>{
             UID++;
@@ -65,12 +64,12 @@ const Jogo=()=>{
 
             setObjects((prevObjects) => { 
                 const updatedObjects = prevObjects.map((object) => {
-                    if (object.path <= -10) {
+                    if (object.path <= -40) {
                         return null;
                     }
 
                     let activated = object.activated;
-                    if (object.path > 0 && object.path < 30 && object.line === PosY && !activated) {
+                    if (object.path > 0 && object.path < 11 && object.line === PosY && !activated) {
                         activated = object.callback();
                     }
 
@@ -106,7 +105,6 @@ const Jogo=()=>{
                 image: imgBrake,
                 path: 100,
                 line: getLine(),
-
                 activated: false,
                 callback: ()=>{
                     console.log("brakezone ativado")
@@ -116,8 +114,8 @@ const Jogo=()=>{
             setObjects(prevObjects => [...prevObjects, newObject]);
         };
 
-        brakeInterval = setInterval(createBrake, 2000);
-        attackInterval = setInterval(createAttack, 2000);
+        brakeInterval = setInterval(createBrake, 4000);
+        attackInterval = setInterval(createAttack, 4000);
         requestAnimationFrame(render);
 
         return ()=>{
@@ -132,8 +130,15 @@ const Jogo=()=>{
         <JogoStyle>
             <section className='content'>
                 <div className="top-frame">
-                    <div className="battery">
-                        <h4 className="battery-label">BATERIA</h4>
+                    <div className="black-div battery">
+                        <h4 className="label">BATERIA</h4>
+                        <div className="battery-bar">
+                            <div style={{ width: `${battery}%` }} className="battery-value" />
+                        </div>
+                    </div>
+
+                    <div className="black-div score">
+                        <h4 className="label">SCORE</h4>
                         <div className="battery-bar">
                             <div style={{ width: `${battery}%` }} className="battery-value" />
                         </div>
@@ -151,13 +156,13 @@ const Jogo=()=>{
                                     src={object.image}
                                     style={{
                                         marginLeft: `${object.path}%`,
-                                        marginTop: `${(object.line - 1) * 11}%`
+                                        marginTop: `${(object.line - 1) * 10}%`
                                     }}
                                 />
                             );
                         })}
                     </div>
-                    <img src={imgCarro} className="carro" style={{ marginTop: `${(PosY - 1) * 11}%` }} />
+                    <img src={imgCarro} className="carro" style={{ marginTop: `${(PosY - 1) * 10}%` }} />
                 </div>
                 <div className="teclas">
                     <div className='grid1'>

@@ -18,13 +18,12 @@ export const JogoStyle = styled.section`
 
 .game-board {
     width: 100%;
-    height: 70vh;
+    height: 60vh;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
     background: linear-gradient(#87CEEB, #E0F6FF);
 }
-
 
 .game-holder {
     position: absolute;
@@ -33,8 +32,8 @@ export const JogoStyle = styled.section`
 }
 
 .carro {
-    transition: 1s ease-out;
-    position: relative;
+    transition: 2s ease-out;
+    position: absolute;
     height: 33%;
 }
 
@@ -137,15 +136,22 @@ h1 {
     transition: .2s
 }
 
+.black-div{
+    position: absolute;
+    width: 40%;
+    height: 90%;
+    background-color: var(--color2);
+    border-radius: 7px;
+}
+
 .battery{
     left: 95%;
     transform: translateX(-100%) skew(20deg);
-    background-color: var(--color2);
-    position: relative;
-    width: 57%;
-    height: 90%;
-    border-radius: 7px;
-    color: white;
+}
+
+.score{
+    left: 10%;
+    transform: skew(20deg);
 }
 
 .battery-bar {
@@ -167,7 +173,7 @@ h1 {
     height: 100%;
 }
 
-.battery-label {
+.label {
     position: absolute;
     transform: translateX(-50%) skew(-20deg);
     left: 50%;
@@ -179,15 +185,16 @@ h1 {
 }
 
 .top-frame{
+    justify-content:space-around;
     top: 0;
     z-index: 10;
     position: absolute;
     margin-left: 100%;
     transform: translateX(-100%);
     height: 75px;
-    width: 30%;
+    width: 30rem;
     background-color: var(--color1);
-    clip-path: polygon(12% 100%, 0% 0%, 100% 0%, 100% 100%)
+    clip-path: polygon(7% 100%, 0% 0%, 100% 0%, 100% 100%)
 }
 
 

@@ -45,9 +45,11 @@ const Jogo = () => {
         const getLine = () => {
             const availableLines = [1, 2, 3].filter(line => line !== lastLine);
             const randomIndex = Math.floor(Math.random() * availableLines.length);
-            lastLine = availableLines[randomIndex];
-            return lastLine;
+            const newLine = availableLines[randomIndex];
+            lastLine = newLine;
+            return newLine;
         };
+
 
         let UID = 0;
         const getUID = () => {

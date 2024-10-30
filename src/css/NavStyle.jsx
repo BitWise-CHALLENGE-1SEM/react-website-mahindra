@@ -65,7 +65,7 @@ nav ul li a, button:hover {
     transition: all .3s;
 }
 .cta-button {
-    margin: 0px 25px px 25px;
+    margin: 0px 25px 0px 25px;
     background: var(--color2);
     padding: 4px 30px 4px 30px;
     align-items: center;

@@ -130,33 +130,51 @@ h1 {
     }
 }
 
-.attackzone {
+.attackzone,.brakezone {
     position: absolute;
     height: 20%;
     transform: translateY(30%);
     transition: .2s
 }
 
-.battery-bar {
+.battery{
+    left: 95%;
+    transform: translateX(-100%) skew(20deg);
+    background-color: var(--color2);
     position: relative;
-    top: 40px; /* Posição da barra para baixo */
-    left: 75%; /* Alinha a barra mais à esquerda */
-    width: 20%; /* Aumenta a largura da barra */
-    height: 15px; /* Altura da barra */
-    background-color: #00ff00; /* Cor verde vibrante */
-    transition: width 0.2s; /* Animação ao mudar a largura */
-    z-index: 10; /* Garante que a barra esteja acima de outros elementos */
-    border-radius: 5px; /* Bordas arredondadas */
+    width: 57%;
+    height: 90%;
+    border-radius: 7px;
+    color: white;
+}
+
+.battery-bar {
+    position: absolute;
+    transform: translateX(-50%);
+    top: 60%;
+    left: 50%;
+    width: 90%;
+    height: 25%;
+    background-color: #000000;
+    z-index: 10;
+    border-radius: 5px;
+}
+.battery-value{
+    background-color: #00d9ff;
+    transition: width 0.5s;
+    z-index: 11;
+    width: 100%;
+    height: 100%;
 }
 
 .battery-label {
-    position: relative;
-    transform: translateX(-50%);
-    left:50%;
-    width: 20%;
+    position: absolute;
+    transform: translateX(-50%) skew(-20deg);
+    left: 50%;
+    width: 100%;
     color: white;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 2rem;
     text-align: center
 }
 
@@ -170,12 +188,6 @@ h1 {
     width: 30%;
     background-color: var(--color1);
     clip-path: polygon(12% 100%, 0% 0%, 100% 0%, 100% 100%)
-}
-
-.battery{
-    background-color: var(--color2);
-    position: relative;
-    width: 30;
 }
 
 

@@ -66,7 +66,7 @@ const Tecnologias = () => {
                                 playing
                                 loop={true}
                                 muted
-                                className="video-background"
+                                className="video-background" 
                             />
                         </div>
 

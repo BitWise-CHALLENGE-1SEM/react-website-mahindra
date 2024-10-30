@@ -70,7 +70,7 @@ const Jogo=()=>{
                     }
 
                     let activated = object.activated;
-                    if (object.path > 0 && object.path < 10 && object.line === PosY && !activated) {
+                    if (object.path > 0 && object.path < 30 && object.line === PosY && !activated) {
                         activated = object.callback();
                     }
 

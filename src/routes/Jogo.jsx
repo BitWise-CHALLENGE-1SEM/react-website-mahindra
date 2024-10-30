@@ -3,7 +3,7 @@ import { JogoStyle } from "../css/JogoStyle.jsx";
 
 import tecla_s from "../assets/game/tecla-s-do-teclado.png";
 import tecla_w from "../assets/game/tecla-w-de-um-teclado-de-computador.png";
-import imgCarro from "../assets/game/carro.png";
+import imgCarro from "../assets/game/carro_mahindra_upperview.png";
 import imgAttack from "../assets/game/attackzone.png";
 import imgBrake from "../assets/game/brakezone.png";
 import imgPista from "../assets/game/pista de fundo.png";
@@ -61,7 +61,7 @@ const Jogo = () => {
             const delta = (now - tick) / 1000;
             tick = now;
 
-            setObjects((prevObjects) => {
+            setObjects((prevObjects) => { 
                 const updatedObjects = prevObjects.map((object) => {
                     if (object.path <= -10) {
                         return null;
@@ -104,6 +104,7 @@ const Jogo = () => {
                 image: imgBrake,
                 path: 100,
                 line: getLine(),
+
                 activated: false,
                 callback: () => {
                     console.log("brakezone ativado")

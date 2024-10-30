@@ -3,7 +3,7 @@ import { JogoStyle } from "../css/JogoStyle.jsx";
 import tecla_s from "../assets/game/tecla-s-do-teclado.png";
 import tecla_w from "../assets/game/tecla-w-de-um-teclado-de-computador.png";
 
-import imgCarro from "../assets/game/carro.png";
+import imgCarro from "../assets/game/carro_mahindra_upperview.jpg";
 import imgAttack from "../assets/game/attackzone.png";
 import imgPista from "../assets/game/pista de fundo.png";
 
@@ -27,6 +27,9 @@ const Jogo = () => {
         }
     ]);
     
+    window.onload = function() {
+       
+      };
     useEffect(() => {
         const changeAlign = (offset) => {
             jsPosY = Math.min(Math.max(jsPosY + offset, 1), 3);

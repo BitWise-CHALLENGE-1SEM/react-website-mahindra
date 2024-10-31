@@ -32,7 +32,7 @@ export const JogoStyle = styled.section`
 }
 
 .carro {
-    transition: 2s ease-out;
+    transition: .3s ease-out;
     position: absolute;
     height: 33%;
 }
@@ -182,6 +182,16 @@ h1 {
     font-weight: bold;
     font-size: 2rem;
     text-align: center
+}
+
+.score-label{
+    transform: translateX(-50%) skew(-20deg);
+    left: 50%;
+    color: white;
+    position: absolute;
+    top: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .top-frame{

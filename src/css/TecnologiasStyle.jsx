@@ -149,13 +149,19 @@ export const TecnologiasStyle = styled.section`
 }
 .secao2-text p{
     margin: 2rem auto 2rem;
-    width: 60%;
+    width: 70%;
     color: var(--color1);
     font-size: 1.7rem;
 }
 
 .secao2-text p a{
     color: white;
+}
+
+.secao2-text p{
+    background-color: var(--color2);
+    border-radius: 30px;
+    padding: 1rem;
 }
 
 .secao2-image{
@@ -221,8 +227,10 @@ export const TecnologiasStyle = styled.section`
 .secao3 h2{
     display: flex;
     justify-content: center;
+    align-items: center;
     color: var(--color1);
-    font-size: 2rem;
+    font-size: 2.5rem;
+    
 }
 
 .frame{

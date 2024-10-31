@@ -13,7 +13,7 @@ const Jogo=()=>{
     const [PosY,setPosY] = useState(2);
     const [objects,setObjects] = useState([]);
     const [battery,setBattery] = useState(100);
-    const [speed,setSpeed] = useState(5);
+    const [speed,setSpeed] = useState(60);
 
     useEffect(() => {
         const changeAlign=(offset)=>{
@@ -73,7 +73,7 @@ const Jogo=()=>{
                         activated = object.callback();
                     }
 
-                    return { ...object, path: object.path - 5 * delta, activated };
+                    return { ...object, path: object.path - speed/2 * delta, activated };
                 }).filter(object => object !== null && !object.activated);
                 
                 return updatedObjects;
@@ -114,8 +114,8 @@ const Jogo=()=>{
             setObjects(prevObjects => [...prevObjects, newObject]);
         };
 
-        brakeInterval = setInterval(createBrake, 4000);
-        attackInterval = setInterval(createAttack, 4000);
+        brakeInterval = setInterval(createBrake, 7000);
+        attackInterval = setInterval(createAttack, 8000);
         requestAnimationFrame(render);
 
         return ()=>{
@@ -123,10 +123,10 @@ const Jogo=()=>{
             clearInterval(brakeInterval);
             running = false
         };
-    }, [PosY]);
+    }, [PosY, speed]);
 
     return(<>
-        <Nav buttons={["Home", "Tecnologias"]} />
+        <Nav buttons={["Tecnologias","Home",sessionStorage.getItem("usuario") ? "" : "Login"]} />
         <JogoStyle>
             <section className='content'>
                 <div className="top-frame">
@@ -145,8 +145,14 @@ const Jogo=()=>{
                     </div>
                 </div>
 
-                <div className="game-board">
-                    <img src={imgPista} className="track" />
+                <div className="game-board"
+                    // style={{
+                    //     filter:`blur(.3rem)`
+                    // }}
+                >
+                    <img src={imgPista} className="track" style={{
+                        animation:`clouds-animation ${200/speed}s infinite linear`
+                    }}/>
                     <div className="game-holder">
                         {objects.map((object) => {
                             return (

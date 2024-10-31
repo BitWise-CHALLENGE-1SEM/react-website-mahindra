@@ -41,7 +41,6 @@ export const JogoStyle = styled.section`
     position: absolute;
     height: 100%;
     width: 200%;
-    animation: clouds-animation 2s infinite linear;
     margin-right: -100%;
 }
 

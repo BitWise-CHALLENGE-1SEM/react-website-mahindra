@@ -51,8 +51,7 @@ export const JogoStyle = styled.section`
 
 .teclas {
     padding: 5vh;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); // Correção aqui para usar repeat
+    display: flex;
     justify-content: center;
     gap: 5vh;
 }

@@ -4,7 +4,7 @@ import gp_berlim from "../assets/tracks/gp-berlim.webp";
 import gp_uer from "../assets/tracks/gp-uer.webp";
 
 import Slideshow from "../components/Slideshow"
-import exemplo_jogo from "../assets/exemplo_jogo.png";
+import exemplo_jogo from "../assets/exemplo_jogo_new.png";
 
 import { HomeStyle } from "../css/HomeStyle";
 

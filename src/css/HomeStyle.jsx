@@ -218,7 +218,7 @@ body{
 
 .jogo img{
     width: 80%;
-    border: 4px solid #222222;
+    border: 4px solid var(--color4);
 }
 
 .secao3{

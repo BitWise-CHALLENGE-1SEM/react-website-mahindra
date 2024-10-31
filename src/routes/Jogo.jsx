@@ -73,7 +73,6 @@ const Jogo=()=>{
 
                     let activated = object.activated;
                     if (object.path > 0 && object.path < 11 && object.line === PosY && !activated) {
-                        console.log("1oi")
                         activated = object.callback();
                     }
 

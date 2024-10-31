@@ -54,10 +54,15 @@ export const JogoStyle = styled.section`
     display: flex;
     justify-content: center;
     gap: 5vh;
+
+}
+.teclas h2{
+    color: white;
 }
 
 .teclas img {
     height: 8vh;
+    filter: invert();
 }
 
 h1 {

@@ -13,8 +13,7 @@ const Jogo=()=>{
     const [PosY,setPosY] = useState(2);
     const [objects,setObjects] = useState([]);
     const [battery,setBattery] = useState(100);
-    const [distance,setDistance] = useState(0);
-    const [speed,setSpeed] = useState(50);
+    const [speed,setSpeed] = useState(5);
 
     useEffect(() => {
         const changeAlign=(offset)=>{
@@ -63,7 +62,7 @@ const Jogo=()=>{
             const delta = (now - tick) / 1000;
             tick = now;
 
-            setObjects((prevObjects)=>{ 
+            setObjects((prevObjects) => { 
                 const updatedObjects = prevObjects.map((object) => {
                     if (object.path <= -40) {
                         return null;
@@ -74,14 +73,11 @@ const Jogo=()=>{
                         activated = object.callback();
                     }
 
-                    return { ...object, path: object.path - speed * delta, activated };
+                    return { ...object, path: object.path - 5 * delta, activated };
                 }).filter(object => object !== null && !object.activated);
                 
                 return updatedObjects;
             });
-            setDistance((prevSpeed)=>{
-                return (prevSpeed+(speed/5)*delta)
-            })
 
             requestAnimationFrame(render);
         };
@@ -118,27 +114,14 @@ const Jogo=()=>{
             setObjects(prevObjects => [...prevObjects, newObject]);
         };
 
-        brakeInterval = setInterval(createBrake, 10000);
-        attackInterval = setInterval(createAttack, 8000);
+        brakeInterval = setInterval(createBrake, 4000);
+        attackInterval = setInterval(createAttack, 4000);
         requestAnimationFrame(render);
 
-        const handleFocus = () => {
-            requestAnimationFrame(render);
-            running = true;
-        };
-
-        const handleBlur = () => {
-            running = false;
-        };
-            
-        window.addEventListener('focus', handleFocus);
-        window.addEventListener('blur', handleBlur);
         return ()=>{
-            window.removeEventListener('focus',handleFocus);
-            window.removeEventListener('blur',handleBlur);
             clearInterval(attackInterval);
             clearInterval(brakeInterval);
-            running = false;
+            running = false
         };
     }, [PosY]);
 
@@ -156,7 +139,9 @@ const Jogo=()=>{
 
                     <div className="black-div score">
                         <h4 className="label">SCORE</h4>
-                        <label className="score-label">{`${Math.floor(distance)}m`}</label>
+                        <div className="battery-bar">
+                            <div style={{ width: `${battery}%` }} className="battery-value" />
+                        </div>
                     </div>
                 </div>
 

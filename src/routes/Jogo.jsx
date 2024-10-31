@@ -75,7 +75,7 @@ const Jogo=()=>{
                     }
 
                     return { ...object, path: object.path - speed/2 * delta, activated };
-                }).filter(object => object !== null && !object.activated);
+                }).filter(object => object !== null);
                 
                 return updatedObjects;
             });
@@ -116,14 +116,12 @@ const Jogo=()=>{
             };
             setObjects(prevObjects => [...prevObjects, newObject]);
         };
-
-        brakeInterval = setInterval(createBrake, 10000);
-        attackInterval = setInterval(createAttack, 8000);
-        requestAnimationFrame(render);
+        brakeInterval = setInterval(createBrake, 7000);
+        attackInterval = setInterval(createAttack, 5000);
 
         const handleFocus = () => {
-            requestAnimationFrame(render);
             running = true;
+            requestAnimationFrame(render);
         };
         const handleBlur = () => {
             running = false;
@@ -131,6 +129,7 @@ const Jogo=()=>{
             
         window.addEventListener('focus', handleFocus);
         window.addEventListener('blur', handleBlur);
+        requestAnimationFrame(render);
         return ()=>{
             window.removeEventListener('focus',handleFocus);
             window.removeEventListener('blur',handleBlur);

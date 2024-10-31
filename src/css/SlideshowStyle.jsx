@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const SlideshowStyle = styled.section`
 
 .secao1{    
-    padding: 100px 0px 50px 0px;
+    padding: 10px 0px 80px 0px;
     position: relative;
     background-image: radial-gradient( #444444 ,#222222 );
     display: flex;
@@ -17,7 +17,7 @@ export const SlideshowStyle = styled.section`
     color: white;
     font-size: 37px;
     text-align: center;
-    padding-bottom: 100px;
+    padding-bottom: 70px;
     text-transform: uppercase;
     -webkit-text-stroke-color: black;
     -webkit-text-stroke-width: 1.5px;

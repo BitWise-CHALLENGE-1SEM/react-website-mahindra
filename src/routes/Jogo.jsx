@@ -117,6 +117,10 @@ const Jogo=()=>{
             setObjects(prevObjects => [...prevObjects, newObject]);
         };
 
+        brakeInterval = setInterval(createBrake, 10000);
+        attackInterval = setInterval(createAttack, 8000);
+        requestAnimationFrame(render);
+
         const handleFocus = () => {
             requestAnimationFrame(render);
             running = true;

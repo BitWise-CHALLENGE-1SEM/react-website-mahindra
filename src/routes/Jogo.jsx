@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState,useEffect,useRef } from 'react';
 import { JogoStyle } from "../css/JogoStyle.jsx";
 
 import tecla_s from "../assets/game/tecla-s-do-teclado.png";
@@ -10,11 +10,13 @@ import imgPista from "../assets/game/pista de fundo.png";
 import Nav from "../components/Nav";
 
 const Jogo=()=>{
+    const DefaultSpeed = 60
     const [PosY,setPosY] = useState(2);
     const [objects,setObjects] = useState([]);
     const [battery,setBattery] = useState(100);
     const [distance,setDistance] = useState(0);
-    const [speed,setSpeed] = useState(60);
+    const [speed,setSpeed] = useState(DefaultSpeed);
+    const requestRef = useRef();
 
     useEffect(() => {
         const changeAlign=(offset)=>{
@@ -71,6 +73,7 @@ const Jogo=()=>{
 
                     let activated = object.activated;
                     if (object.path > 0 && object.path < 11 && object.line === PosY && !activated) {
+                        console.log("1oi")
                         activated = object.callback();
                     }
 
@@ -82,26 +85,13 @@ const Jogo=()=>{
             setDistance((prevSpeed)=>{
                 return (prevSpeed+(speed/5)*delta)
             })  
-            requestAnimationFrame(render);
+            setBattery((prevBattery)=>{
+                return (prevBattery-(speed/100)*delta)
+            }) 
+            requestRef.current = requestAnimationFrame(render);
         };
 
-        const createAttack = () => {
-            const newObject = {
-                id: getUID(),
-                element: "attackzone",
-                image: imgAttack,
-                path: 100,
-                line: getLine(),
-                activated: false,
-                callback: ()=>{
-                    console.log("attack ativado")
-                    return true;
-                }
-            };
-            setObjects(prevObjects => [...prevObjects, newObject]);
-        };
-
-        const createBrake=()=>{
+        brakeInterval = setInterval(()=>{
             const newObject = {
                 id: getUID(),
                 element: "brakezone",
@@ -115,21 +105,40 @@ const Jogo=()=>{
                 }
             };
             setObjects(prevObjects => [...prevObjects, newObject]);
-        };
-        brakeInterval = setInterval(createBrake, 7000);
-        attackInterval = setInterval(createAttack, 5000);
+        },3000);
 
-        const handleFocus = () => {
+        attackInterval = setInterval(()=>{
+            const newObject = {
+                id: getUID(),
+                element: "attackzone",
+                image: imgAttack,
+                path: 100,
+                line: getLine(),
+                activated: false,
+                callback: ()=>{
+                    if (speed==DefaultSpeed){
+                        setSpeed(90)
+                        let timeout = setTimeout(() => {
+                            setSpeed(DefaultSpeed)
+                        }, 5000);
+                    }
+                    return true;
+                }
+            };
+            setObjects(prevObjects => [...prevObjects, newObject]);
+        },4000);
+
+        const handleFocus =()=>{
             running = true;
-            requestAnimationFrame(render);
+            requestRef.current = requestAnimationFrame(render);
         };
-        const handleBlur = () => {
+        const handleBlur =()=>{
             running = false;
         };
-            
+
+        requestRef.current = requestAnimationFrame(render);
         window.addEventListener('focus', handleFocus);
         window.addEventListener('blur', handleBlur);
-        requestAnimationFrame(render);
         return ()=>{
             window.removeEventListener('focus',handleFocus);
             window.removeEventListener('blur',handleBlur);
@@ -147,13 +156,14 @@ const Jogo=()=>{
                     <div className="black-div battery">
                         <h4 className="label">BATERIA</h4>
                         <div className="battery-bar">
-                            <div style={{ width: `${battery}%` }} className="battery-value" />
+                            <div style={{ width: `${Math.max(battery,0)}%` }} className="battery-value" key={battery}/>
                         </div>
                     </div>
 
                     <div className="black-div score">
                         <h4 className="label">SCORE</h4>
-                        <label className="score-label">{`${Math.floor(distance)}m`}</label>                    </div>
+                        <label className="score-label">{`${Math.floor(distance)}m`}</label>
+                    </div>
                 </div>
 
                 <div className="game-board"
@@ -161,7 +171,7 @@ const Jogo=()=>{
                     //     filter:`blur(.3rem)`
                     // }}
                 >
-                    <img src={imgPista} className="track" style={{
+                    <img src={imgPista} className="track" key={speed} style={{
                         animation:`clouds-animation ${200/speed}s infinite linear`
                     }}/>
                     <div className="game-holder">

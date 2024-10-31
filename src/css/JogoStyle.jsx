@@ -42,6 +42,7 @@ export const JogoStyle = styled.section`
     height: 100%;
     width: 200%;
     margin-right: -100%;
+    transition: 1s
 }
 
 .game-over:hover {

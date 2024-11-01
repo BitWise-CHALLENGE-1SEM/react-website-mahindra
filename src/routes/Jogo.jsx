@@ -86,7 +86,7 @@ const Jogo=()=>{
                 return (prevSpeed+(speed/5)*delta)
             })  
             setBattery((prevBattery) => {
-                const newBattery = prevBattery - (speed*10 / 100) * delta;
+                const newBattery = prevBattery - (speed*5 / 100) * delta;
                 if (newBattery <= 0){
                     setGameover(true);
                     running = false;

@@ -121,6 +121,7 @@ const Jogo=()=>{
                             setSpeed(DefaultSpeed)
                         }, 5000);
                     }
+                    console.log("attack ativado")
                     return true;
                 }
             };

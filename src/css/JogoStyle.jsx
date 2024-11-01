@@ -32,7 +32,7 @@ export const JogoStyle = styled.section`
 }
 
 .carro {
-    transition: .3s ease-out;
+    /* transition: .1s; */
     position: absolute;
     height: 33%;
 }

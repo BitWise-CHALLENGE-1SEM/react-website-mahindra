@@ -11,32 +11,60 @@ import Nav from "../components/Nav";
 
 const Jogo=()=>{
     const DefaultSpeed = 60
-    const [PosY,setPosY] = useState(2);
+    const [PosY,setPosY] = useState({
+        value: 2,
+        target: 2
+    });
+
     const [objects,setObjects] = useState([]);
     const [battery,setBattery] = useState(100);
     const [distance,setDistance] = useState(0);
     const [speed,setSpeed] = useState(DefaultSpeed);
     const requestRef = useRef();
 
+    // Algoritimo para fixar a velocidade com base no STEP do RENDER
+    const LerpSpeed=(DT,Speed)=>{
+        return (1-Math.pow(Speed,DT))
+    }
+
+    // Algoritimo para Interpolar valores a cada RENDER
+    const Interpolation = (Origin, Goal, Speed) => {
+        if (Origin === Goal) {
+            return Origin;
+        } else {
+            let Next = Origin + Speed * (Origin > Goal ? -1 : 1);
+            return Math.abs(Next - Goal) < Speed ? Goal : Next;
+        }
+    };
+
+    let UID = useRef(0);
+    const getUID=()=>{
+        UID.current++;
+        return UID.current;
+    };
+
     useEffect(() => {
         const changeAlign=(offset)=>{
-            const newPosY = Math.min(Math.max(PosY + offset, 1), 3);
-            setPosY(newPosY);
+            setPosY(prev => ({
+                ...prev,
+                target: Math.min(Math.max(prev.target + offset, 1), 3)
+            }));
         };
-
-        const handleKeyDown=(event)=>{
-            if (event.keyCode === 87) {
+    
+        const handleKeyDown = (event) => {
+            event.preventDefault();
+            if (event.key === 'w') {
                 changeAlign(-1);
-            } else if (event.keyCode === 83) {
+            } else if (event.key === 's') {
                 changeAlign(1);
             }
         };
-
+    
         window.addEventListener('keydown', handleKeyDown);
-        return()=>{
+        return () => {
             window.removeEventListener('keydown', handleKeyDown);
         };
-    }, [PosY]);
+    }, []);
     
     useEffect(()=>{
         let tick = Date.now();
@@ -52,13 +80,6 @@ const Jogo=()=>{
             lastLine = newLine;
             return newLine;
         };
-
-        let UID = 0;
-        const getUID=()=>{
-            UID++;
-            return UID;
-        };
-
         const render=()=>{
             if (!running) return;
             const now = Date.now();
@@ -72,7 +93,7 @@ const Jogo=()=>{
                     }
 
                     let activated = object.activated;
-                    if (object.path > 0 && object.path < 11 && object.line === PosY && !activated) {
+                    if (object.path > 0 && object.path < 11 && object.line === Math.round(PosY.value)-1 && !activated) {
                         activated = object.callback();
                     }
 
@@ -87,6 +108,10 @@ const Jogo=()=>{
             setBattery((prevBattery)=>{
                 return (prevBattery-(speed/100)*delta)
             }) 
+            setPosY((prev)=>{
+                return {...prev,value:Interpolation(prev.value,prev.target,LerpSpeed(delta,.3))}
+            })
+            
             requestRef.current = requestAnimationFrame(render);
         };
 
@@ -99,8 +124,16 @@ const Jogo=()=>{
                 line: getLine(),
                 activated: false,
                 callback: ()=>{
-                    console.log("brakezone ativado")
-                    return true;
+                    if (speed==DefaultSpeed){
+                        console.log("brakezone ativa")
+                        setSpeed(30)
+                        setBattery(100)
+                        let timeout = setTimeout(() => {
+                            setSpeed(DefaultSpeed)
+                        }, 5000);
+                        return true;
+                    }
+                    return false;
                 }
             };
             setObjects(prevObjects => [...prevObjects, newObject]);
@@ -116,12 +149,14 @@ const Jogo=()=>{
                 activated: false,
                 callback: ()=>{
                     if (speed==DefaultSpeed){
+                        console.log("attack ativa")
                         setSpeed(90)
                         let timeout = setTimeout(() => {
                             setSpeed(DefaultSpeed)
                         }, 5000);
+                        return true;
                     }
-                    return true;
+                    return false;
                 }
             };
             setObjects(prevObjects => [...prevObjects, newObject]);
@@ -145,7 +180,19 @@ const Jogo=()=>{
             clearInterval(brakeInterval);
             running = false;
         };
-    }, [PosY, speed]);
+    },[speed]);
+
+    const renderCar = () => {
+        return (<img
+            key={getUID()}
+            src={imgCarro}
+            className="carro"
+            style={{ 
+                marginTop: `${(PosY.value-1) * 10}%`,
+                rotate: `${(PosY.target-PosY.value)*10}deg`,
+            }}
+        />);
+    };
 
     return(<>
         <Nav buttons={["Tecnologias","Home",sessionStorage.getItem("usuario") ? "" : "Login"]} />
@@ -188,7 +235,8 @@ const Jogo=()=>{
                             );
                         })}
                     </div>
-                    <img src={imgCarro} className="carro" style={{ marginTop: `${(PosY - 1) * 10}%` }} />
+
+                    {renderCar()}
                 </div>
                 <div className="teclas">
                     <div className='grid1'>

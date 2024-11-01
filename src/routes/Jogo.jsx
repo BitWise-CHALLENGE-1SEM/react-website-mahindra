@@ -84,12 +84,21 @@ const Jogo=()=>{
             setDistance((prevSpeed)=>{
                 return (prevSpeed+(speed/5)*delta)
             })  
-            setBattery((prevBattery)=>{
-                return (prevBattery-(speed/100)*delta)
-            }) 
+            setBattery((prevBattery) => {
+                const newBattery = prevBattery - (speed*10 / 100) * delta;
+                if (newBattery <= 0) {
+                    running = false;
+                    setSpeed(0)
+                    return 0;
+                    
+                }
+                return newBattery;
+            });
+        
             requestRef.current = requestAnimationFrame(render);
         };
-
+        
+        
         brakeInterval = setInterval(()=>{
             const newObject = {
                 id: getUID(),
@@ -146,6 +155,8 @@ const Jogo=()=>{
             clearInterval(brakeInterval);
             running = false;
         };
+
+        
     }, [PosY, speed]);
 
     return(<>

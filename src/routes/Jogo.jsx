@@ -64,7 +64,7 @@ const Jogo=()=>{
         return () => {
             window.removeEventListener('keydown', handleKeyDown);
         };
-    }, []);
+    }, [PosY]);
     
     useEffect(()=>{
         let tick = Date.now();
@@ -93,7 +93,7 @@ const Jogo=()=>{
                     }
 
                     let activated = object.activated;
-                    if (object.path > 0 && object.path < 11 && object.line === Math.round(PosY.value)-1 && !activated) {
+                    if (object.path > 0 && object.path < 11 && object.line === Math.round(PosY.value) && !activated) {
                         activated = object.callback();
                     }
 

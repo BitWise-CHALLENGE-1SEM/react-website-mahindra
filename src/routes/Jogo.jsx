@@ -17,6 +17,7 @@ const Jogo=()=>{
     const [distance,setDistance] = useState(0);
     const [speed,setSpeed] = useState(DefaultSpeed);
     const requestRef = useRef();
+    const [gameover, setGameover] = useState(false);
 
     useEffect(() => {
         const changeAlign=(offset)=>{
@@ -86,7 +87,8 @@ const Jogo=()=>{
             })  
             setBattery((prevBattery) => {
                 const newBattery = prevBattery - (speed*10 / 100) * delta;
-                if (newBattery <= 0) {
+                if (newBattery <= 0){
+                    setGameover(true);
                     running = false;
                     setSpeed(0)
                     return 0;
@@ -201,6 +203,11 @@ const Jogo=()=>{
                         })}
                     </div>
                     <img src={imgCarro} className="carro" style={{ marginTop: `${(PosY - 1) * 10}%` }} />
+                </div>
+                <div className='div-btn'>
+                    <button className='game-over' onClick={()=>{
+                            location.reload()
+                    }} style={{visibility: gameover ? 'visible' : 'hidden' }}>GAME OVER</button>
                 </div>
                 <div className="teclas">
                     <div className='grid1'>

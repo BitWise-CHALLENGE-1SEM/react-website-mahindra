@@ -210,6 +210,22 @@ h1 {
     background-color: var(--color1);
     clip-path: polygon(7% 100%, 0% 0%, 100% 0%, 100% 100%)
 }
+.div-btn{
+    display: flex;
+    justify-content: center;
+    padding: 2vh;
+}
+.game-over{
+    display: flex;
+    padding: 1rem;
+    border-radius: 5rem;
+    background-color: var(--color1);
+    color: white;
 
+}
+.game-over:hover{
+    background-color: var(--color1);
+    color: black;
+}
 `;
 

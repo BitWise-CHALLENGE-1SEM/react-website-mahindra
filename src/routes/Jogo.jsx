@@ -86,7 +86,7 @@ const Jogo=()=>{
                 return (prevSpeed+(speed/5)*delta)
             })  
             setBattery((prevBattery) => {
-                const newBattery = prevBattery - (speed*5 / 100) * delta;
+                const newBattery = prevBattery - (speed*10 / 100) * delta;
                 if (newBattery <= 0){
                     setGameover(true);
                     running = false;
@@ -112,12 +112,12 @@ const Jogo=()=>{
                 callback: ()=>{
                     if (speed==DefaultSpeed){
                         setBattery((prevBattery)=>{
-                            return Math.min(prevBattery+45,100)
+                            return Math.min(prevBattery+20,100)
                         })
-                        setSpeed(40)
+                        setSpeed(30)
                         let timeout = setTimeout(() => {
                             setSpeed(DefaultSpeed)
-                        }, 5000);
+                        }, 2000);
                     }
 
                     return true;
@@ -135,17 +135,17 @@ const Jogo=()=>{
                 line: getLine(),
                 activated: false,
                 callback: ()=>{
-                    if (speed==DefaultSpeed){
-                        setSpeed(90)
+                    if (speed<=DefaultSpeed){
+                        setSpeed(110)
                         let timeout = setTimeout(() => {
                             setSpeed(DefaultSpeed)
-                        }, 5000);
+                        }, 2000);
                     }
                     return true;
                 }
             };
             setObjects(prevObjects => [...prevObjects, newObject]);
-        },4000);
+        },2000);
 
         const handleFocus =()=>{
             running = true;

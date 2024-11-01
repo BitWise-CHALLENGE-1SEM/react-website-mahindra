@@ -183,10 +183,12 @@ const Jogo=()=>{
                     // style={{
                     //     filter:`blur(.3rem)`
                     // }}
+                    
                 >
                     <img src={imgPista} className="track" key={speed} style={{
                         animation:`clouds-animation ${200/speed}s infinite linear`
                     }}/>
+                    
                     <div className="game-holder">
                         {objects.map((object) => {
                             return (
@@ -203,12 +205,13 @@ const Jogo=()=>{
                         })}
                     </div>
                     <img src={imgCarro} className="carro" style={{ marginTop: `${(PosY - 1) * 10}%` }} />
+                    <div className='div-btn'>
+                        <button className='game-over' onClick={()=>{
+                                location.reload()
+                        }} style={{visibility: gameover ? 'visible' : 'hidden' }}>GAME OVER</button>
+                    </div>
                 </div>
-                <div className='div-btn'>
-                    <button className='game-over' onClick={()=>{
-                            location.reload()
-                    }} style={{visibility: gameover ? 'visible' : 'hidden' }}>GAME OVER</button>
-                </div>
+                
                 <div className="teclas">
                     <div className='grid1'>
                         <img src={tecla_w} alt="Up" />

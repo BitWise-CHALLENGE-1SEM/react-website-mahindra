@@ -211,16 +211,23 @@ h1 {
     clip-path: polygon(7% 100%, 0% 0%, 100% 0%, 100% 100%)
 }
 .div-btn{
-    display: flex;
-    justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    top: 50%;
     padding: 2vh;
+    z-index: 999;
+    height: 10rem;
+    width: 17rem;
 }
 .game-over{
-    display: flex;
+    height: 100%;
+    width: 100%;
     padding: 1rem;
     border-radius: 5rem;
     background-color: var(--color1);
     color: white;
+    font-size: 2rem;
 
 }
 .game-over:hover{

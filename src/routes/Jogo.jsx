@@ -110,7 +110,16 @@ const Jogo=()=>{
                 line: getLine(),
                 activated: false,
                 callback: ()=>{
-                    console.log("brakezone ativado")
+                    if (speed==DefaultSpeed){
+                        setBattery((prevBattery)=>{
+                            return Math.min(prevBattery+45,100)
+                        })
+                        setSpeed(40)
+                        let timeout = setTimeout(() => {
+                            setSpeed(DefaultSpeed)
+                        }, 5000);
+                    }
+
                     return true;
                 }
             };
@@ -132,7 +141,6 @@ const Jogo=()=>{
                             setSpeed(DefaultSpeed)
                         }, 5000);
                     }
-                    console.log("attack ativado")
                     return true;
                 }
             };

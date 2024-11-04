@@ -154,10 +154,10 @@ body{
     background: url(../src/assets/chars/de_vries.png) no-repeat 44%/cover #222222;
 }
 .container-expand > div:nth-of-type(2){
-    background: url(../src/assets/chars/king.png) no-repeat 45%/cover #222222;
+    background: url(../src/assets/chars/mortara.png) no-repeat 45%/cover #222222;
 }
 .container-expand > div:nth-of-type(3){
-    background: url(../src/assets/chars/mortara.png) no-repeat 45%/cover #222222;
+    background: url(../src/assets/chars/king.png) no-repeat 45%/cover #222222;
 }
 .container-expand > div:nth-of-type(4){
     background: url(../src/assets/chars/CEO-mahindra.webp) no-repeat 39%/cover;
